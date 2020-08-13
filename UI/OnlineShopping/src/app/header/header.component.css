@@ -1,0 +1,120 @@
+/* Top Header */
+#top-header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #1E1F29;
+  }
+  .header-links li {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 12px;
+  }
+/* Logo */
+  header {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: #1E1F29;
+  }
+  
+  .header-logo {
+    float: left;
+  }
+  
+  .header-logo .logo img {
+    display: block;
+  }
+
+  /* Search bar in header */
+  .header-search form {
+    position: relative;
+  }
+
+  .header-search form .input {
+    width: calc(100% - 260px);
+    margin-right: -4px;
+  }
+  
+  .header-search form .search-btn {
+    height: 40px;
+    width: 100px;
+    background: #D10024;
+    color: #FFF;
+    font-weight: 700;
+    border: none;
+    border-radius: 0px 40px 40px 0px;
+  }
+/* cart and wishlist logo */
+.header-ctn {
+    float: right;
+    padding: 15px 0px;
+  }
+
+
+  .header-ctn .menu-toggle {
+    display: none;
+  }
+  /* Navigation bar */
+  
+  .topnav {
+    overflow: hidden;
+    background-color: #333;
+  }
+  .topnav1 {
+    overflow: hidden;
+    background-color: rgb(197, 177, 177);
+  }
+
+  .topnav a {
+    float: left;
+    display: block;
+    color: #fbf5f5;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+  
+  .topnav a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
+  .topnav a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  .topnav .icon {
+    display: none;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {display: none;}
+    .topnav a.icon {
+      float: right;
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .topnav.responsive {position: relative;}
+    .topnav.responsive .icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .topnav.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }
+/* unordered List */
+
+ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none
+  }
+
+  
