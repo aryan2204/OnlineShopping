@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<style>
+    .div1{
+        position: relative;
+        margin-top:50px;
+        margin-left: 500px;
+        
+    }
+    #btn1{
+        margin-top: 2%;
+        margin-left: 150px;
+    }
+</style>
+<body>
+    <div class="col-sm-3 sidenav">
+        <ul class="nav nav-pills nav-stacked">
+            <p></p>
+          <li class="active"><a href="product.html">Back</a></li> 
+        </ul><br>
+    </div>  
+    <div class="div1">
+        <h2>Add!!!</h2>
+        <table>
+            <tr>
+                <td><label for="txtName">Product Name</label></td>
+                <td>
+                    <input type="text" id="txtName"  required/>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="txtAge">Product Id</label></td><!--inside label we can do the styling-->
+                <td>
+                    <input type="number" id="txtAge"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="txtDOB">Product Description</label></td>
+                <td>
+                    <input type="text" id="txtDOB" /> <!--max is optional-->
+                </td>
+            </tr>
+            <tr>
+                <td><label for="txtEmail">Price</label></td>
+                <td>
+                    <input type="number" id="txtEmail"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Quantity</label></td>
+                <td>
+                    <input type="number"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Retailer Id</label></td>
+                <td>
+                    <input type="number"/>
+                </td>
+            </tr>
+            <tr>
+                <td><label>Category Id</label></td> 
+                <td>
+                    <input type="number"/>
+                </td>
+            </tr>
+        </table>
+        <br/><br/>
+        <button id="btn1">Add</button>
+    </div>
+</body>
+</html>

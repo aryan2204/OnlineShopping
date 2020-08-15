@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f2a7fd94211c4734965738f7443fdee5" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.AdminInfo" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Category" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Customer" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.OrderDetail" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Order" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Payment" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ProductDetail" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Retailer" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="Model.FK__ProductDe__Categ__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Orders__Customer__21B6055D" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__OrderDeta__Order__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__OrderDeta__Produ__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__Orders__Payment___239E4DCF" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.FK__ProductDe__Retai__34C8D9D1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.Wishlist" Width="1.5" PointX="5.25" PointY="6" />
+        <AssociationConnector Association="Model.FK__Wishlist__Custom__619B8048" />
+        <AssociationConnector Association="Model.FK__Wishlist__Produc__60A75C0F" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
