@@ -11,7 +11,6 @@ export interface HomeModel {
   
   
   export interface serverResponse  {
-    count: number;
     products: HomeModel[];
     
   };

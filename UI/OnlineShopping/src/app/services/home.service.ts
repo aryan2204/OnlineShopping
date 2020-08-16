@@ -9,7 +9,7 @@ import {Observable} from "rxjs";
   })
 export class HomeService{
     private url = environment.serverURL;
-home:HomeModel[]; 
+    home:HomeModel[];
     constructor(private http:HttpClient){
         
     }
@@ -17,7 +17,7 @@ home:HomeModel[];
         return this.http.get<serverResponse>(this.url + 'home');
     }
     getSingleProduct(id: Number): Observable<HomeModel> {
-        return this.http.get<HomeModel>(this.url + 'products/' + id);
+        return this.http.get<HomeModel>(this.url + 'home/' + id);
       }
     
 

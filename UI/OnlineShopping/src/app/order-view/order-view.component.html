@@ -1,0 +1,32 @@
+<div class="col-sm-3 sidenav">
+    <ul class="nav nav-pills nav-stacked">
+        <p></p>
+    </ul><br>
+</div>
+<div class="container">
+<h2>Orders</h2>                                                                                  
+<div class="table-responsive">          
+  <table class="table">
+    <thead>
+       <tr>
+        <th>Order Id</th>
+        <th>Order Status</th>
+        <th>Order Number</th>
+        <th>Order Date</th>
+        <th>Payment Id</th>
+        <th>Total Amount</th>
+      </tr>
+    </thead>
+      <tbody *ngFor="let o of orders">
+        <tr>
+          <td>{{o.Order_Id}}</td>
+          <td>{{o.Order_Status}}</td>
+          <td>{{o.OrderNumber}}</td>
+          <td>{{o.Order_Date}}</td>
+          <td>{{o.Payment_Id}}</td>
+          <td>{{o.Total_Amount}}</td>
+        </tr>
+      </tbody>
+  </table>
+</div>
+</div>

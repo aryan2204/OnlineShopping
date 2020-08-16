@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div id="divhead">
+    <img src="assets\images\bird-logo.jpg" width="100px" id="img">
+  </div>
+  
+  <div class="container">
+    <h2>Product Table</h2>
+    <button class="btn btn-primary btn-lg pull-right" (click)="show()">Add Product</button><br />
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Product Id</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Color</th>
+            <th>Size</th>
+            <th>Pictures</th>
+            <th>BrandName</th>
+            <th>CategoryId</th>
+            <th>RetailerId</th>
+            <th>Update</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let p of products">
+          <tr>
+            <td>{{p. Product_Id}}</td>
+            <td>{{p.Product_Name}}</td>
+            <td>{{p.Quantity}}</td>
+            <td>{{p.Unit_Price}}</td>
+            <td>{{p.Product_Description}}</td>
+            <td>{{p.Color}}</td>
+            <td>{{p.Size}}</td>
+            <td>{{p.Pictures}}</td>
+            <td>{{p.BrandName}}</td>
+            <td>{{p.Category_Id}}</td>
+            <td>{{p.Retailer_Id}}</td>
+            <td><button class="btn btn-success"><span class="glyphicon glyphicon-edit"></span></button></td>
+            <td><button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+
+    <div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog"
+      aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+            <form [formGroup]="myForm">
+              <div class="form-group">
+
+                <input type="text" formControlName="ProdId" class="form-control" placeholder="Product ID"/>
+                <!--[ngClass]="{ 'is-invalid': submitted && f.ProdId.errors }"-->
+                <!-- <div *ngIf="submitted && f.ProdId.errors" class="invalid-feedback">
+                              <div *ngIf="f.ProdId.errors.required">Product Id is required</div>
+                        </div> -->
+              </div>
+              <div class="form-group">
+                <input type="text" formControlName="PName" class="form-control" placeholder="Product Name"/>
+                <!--[ngClass]="{ 'is-invalid': submitted && f.PName.errors }" -->
+                <!-- <div *ngIf="submitted && f.PName.errors" class="invalid-feedback">
+                        <div *ngIf="f.PName.errors.required">Product Name is required</div>
+                     </div> -->
+              </div>
+              <div class="form-group">
+                <input type="text" formControlName="Quan" class="form-control" placeholder="Quantity"/>
+                <!--[ngClass]="{ 'is-invalid': submitted && f.Quan.errors }" -->
+                <!-- <div *ngIf="submitted && f.Quan.errors" class="invalid-feedback">
+                           <div *ngIf="f.Quan.errors">Mobile must be Valid and at least 10 digits</div>
+                          
+                        </div> -->
+              </div>
+              <div class="form-group">
+                <input type="text" formControlName="Price" class="form-control" placeholder="Unit Price"/>
+                <!--[ngClass]="{ 'is-invalid': submitted && f.Quan.errors }" -->
+                <!-- <div *ngIf="submitted && f.Quan.errors" class="invalid-feedback">
+                             <div *ngIf="f.Quan.errors">Mobile must be Valid and at least 10 digits</div>
+                            
+                          </div> -->
+              </div>
+              <div class="form-group">
+                <input type="text" formControlName="Desc" class="form-control" placeholder="Product Description"/>
+                <!--[ngClass]="{ 'is-invalid': submitted && f.Quan.errors }" -->
+                <!-- <div *ngIf="submitted && f.Quan.errors" class="invalid-feedback">
+                               <div *ngIf="f.Quan.errors">Mobile must be Valid and at least 10 digits</div>
+                              
+                            </div> -->
+              </div>
+              <div class="form-group">
+                <input type="text" formControlName="Col" class="form-control" placeholder="Color"/>
+                <!--[ngClass]="{ 'is-invalid': submitted && f.Quan.errors }" -->
+                <!-- <div *ngIf="submitted && f.Quan.errors" class="invalid-feedback">
+                                 <div *ngIf="f.Quan.errors">Mobile must be Valid and at least 10 digits</div>
+                                
+                              </div> -->
+              </div>
+              <div class="form-group">
+                <input type="text" formControlName="Size" class="form-control" placeholder="Size"/>
+                <!--[ngClass]="{ 'is-invalid': submitted && f.Quan.errors }" -->
+                <!-- <div *ngIf="submitted && f.Quan.errors" class="invalid-feedback">
+                                   <div *ngIf="f.Quan.errors">Mobile must be Valid and at least 10 digits</div>
+                                  
+                                </div> -->
+              </div>
+              <div class="form-group">
+                <input type="text" formControlName="Pic" class="form-control" placeholder="Picture"/>
+                <!--[ngClass]="{ 'is-invalid': submitted && f.Quan.errors }" -->
+                <!-- <div *ngIf="submitted && f.Quan.errors" class="invalid-feedback">
+                                     <div *ngIf="f.Quan.errors">Mobile must be Valid and at least 10 digits</div>
+                                    
+                                  </div> -->
+              </div>
+              <div class="form-group">
+                <input type="text" formControlName="Brand" class="form-control" placeholder="Brand Name"/>
+                <!--[ngClass]="{ 'is-invalid': submitted && f.Quan.errors }" -->
+                <!-- <div *ngIf="submitted && f.Quan.errors" class="invalid-feedback">
+                                       <div *ngIf="f.Quan.errors">Mobile must be Valid and at least 10 digits</div>
+                                      
+                                    </div> -->
+              </div>
+              <div class="form-group">
+                <input type="text" formControlName="Category" class="form-control" placeholder="Category Id" />
+                <!--[ngClass]="{ 'is-invalid': submitted && f.Quan.errors }" -->
+                <!-- <div *ngIf="submitted && f.Quan.errors" class="invalid-feedback">
+                                         <div *ngIf="f.Quan.errors">Mobile must be Valid and at least 10 digits</div>
+                                        
+                                      </div> -->
+              </div>
+              <div class="form-group">
+                <input type="text" formControlName="Retailer" class="form-control" placeholder="Retailer Id"/>
+                <!--[ngClass]="{ 'is-invalid': submitted && f.Quan.errors }" -->
+                <!-- <div *ngIf="submitted && f.Quan.errors" class="invalid-feedback">
+                                           <div *ngIf="f.Quan.errors">Mobile must be Valid and at least 10 digits</div>
+                                          
+                                        </div> -->
+              </div>
+              <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid"
+                (click)="onSubmit()">Submit</button><button type="reset" class="btn btn-danger"
+                (click)="hide()">Cancel</button>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+    <footer class="container-fluid">
+      <p>Contact - 011 23456321</p>
+    </footer>
+
+</body>
+</html>

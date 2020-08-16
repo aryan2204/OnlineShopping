@@ -1,0 +1,61 @@
+<div class="col-sm-3 sidenav">
+    <ul class="nav nav-pills nav-stacked">
+        <p></p>
+      <!-- <li class="active"><a href="admindashboard.html">Home</a></li>  -->
+    </ul><br>
+</div>
+
+<div class="container">
+<h2>Retailer Table</h2>   
+<button class="btn btn-primary btn-lg pull-right" (click)="show()">Add Retailer</button><br/>                                                                      
+<div class="table-responsive">          
+ <table class="table">
+   <thead>
+      <tr>
+        <th>Retailer Id</th>
+        <th>Retailer Name</th>
+        <th>Retailer EMail</th>
+        <th>MobileNum</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let r of retailers">
+      <tr>
+        <td>{{r.Retailer_Id}}</td>
+        <td>{{r.Retailer_Name}}</td>
+        <td>{{r. Retailer_EMail}}</td>
+        <td>{{r.MobileNum}}</td>
+        <td><button class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></button></td>
+      </tr>
+    </tbody>
+ </table>  
+</div>
+</div>
+
+<div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+  <div class="modal-header">
+    <h4 class="modal-title" id="myModalLabel">Register</h4>
+  </div>
+  <div class="modal-body">
+            <form [formGroup]="myForm">
+              <div class="form-group">
+               <label>Retailer Name</label>
+               <input type="text" formControlName="RetName" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label>Retailer Email</label>
+                <input type="text" formControlName="RetEmail" class="form-control" />
+               </div>
+               <div class="form-group">
+                <label>Mobile Number</label>
+                <input type="text" formControlName="RetNum" class="form-control" />
+               </div>
+                <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid" (click)="onSubmit()">Submit</button><button type="reset" class="btn btn-danger" (click)="hide()">Cancel</button>
+             </form>  
+            
+      </div>
+  </div>
+</div>
+</div>

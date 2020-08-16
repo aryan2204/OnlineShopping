@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {HomeModel,serverResponse} from '../models/Home.model';
-import {HomeService} from '../services/homeService';
+import {HomeService} from '../services/home.service';
 import {Router} from '@angular/router';
+import { CartService } from '../services/cart.service';
 
 
 @Component({
@@ -11,7 +12,7 @@ import {Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
   products; 
-  constructor(private homeService:HomeService,private router:Router) { }
+  constructor(private homeService:HomeService,private cartService:CartService,private router:Router) { }
 
   ngOnInit(): void {
     this.homeService.getAllProducts().subscribe((data) => {
@@ -22,11 +23,9 @@ export class HomeComponent implements OnInit {
   selectProduct(id: Number) {
     this.router.navigate(['/product', id]).then();
 }
- 
 
 
   AddProduct(id: Number) {
-    console.log("added");
-    //this.cartService.AddProductToCart(id);
+    this.cartService.AddProductToCart(id);
   }
 }

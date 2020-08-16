@@ -1,17 +1,17 @@
 import {HomeModel} from './Home.model';
 
 export interface CartModel {
-  total: Number;
+  Total_Amount: Number;
   data: [{
-    product: HomeModel,
+    product: HomeModel
     numInCart: Number
   }];
 }
 
 export interface CartModelPublic {
-  total: Number;
+  Total_Amount: Number;
   prodData: [{
-    id: Number,
+    Product_Id: Number
     incart: Number
   }]
 }
