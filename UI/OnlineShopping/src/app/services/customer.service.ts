@@ -11,7 +11,8 @@ import { map, filter, catchError, mergeMap } from 'rxjs/operators';
 })
 export class RegistrationService {
 
-  public apiURL:string="http://localhost:63788//api/Registrations";
+  public apiURL:string="http://localhost:63788/api/Registrations";
+  
   constructor(private httpClient:HttpClient) { }
 
   RegisterCustomer (customer:any)
@@ -25,5 +26,5 @@ export class RegistrationService {
   errorHandler(error: Response) {  
     console.log(error);  
     return throwError(error);  
-} 
+ } 
 }

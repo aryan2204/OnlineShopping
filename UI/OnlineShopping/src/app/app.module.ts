@@ -23,9 +23,11 @@ import { RetailerViewComponent } from './retailer-view/retailer-view.component';
 import {ProductService} from './services/productdetail.service';
 import { RetailerService } from './services/retailor.service';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import {RegistrationService} from './services/registration.service';
+import {RegistrationService} from './services/customer.service';
 import {AuthenticationService} from './services/authentication.service';
-import {SharedService} from './services/shared.service'
+import {SharedService} from './services/shared.service';
+import { WishlistComponent } from './wishlist/wishlist.component'
+import { WishlistDataService } from './services/wishlist.service';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,8 @@ import {SharedService} from './services/shared.service'
     AdminComponent,
     ProductViewComponent,
     OrderViewComponent,
-    RetailerViewComponent
+    RetailerViewComponent,
+    WishlistComponent
     
   ],
   imports: [
@@ -53,7 +56,7 @@ import {SharedService} from './services/shared.service'
     ToastrModule.forRoot()
   ],
   providers: [HomeService,OrderService,CartService,ProductService,RetailerService,RegistrationService
-    ,AuthenticationService,SharedService],
+    ,AuthenticationService,SharedService,WishlistDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

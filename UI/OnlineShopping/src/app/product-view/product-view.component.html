@@ -1,15 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
 
-<body>
-  <div id="divhead">
-    <img src="assets\images\bird-logo.jpg" width="100px" id="img">
-  </div>
-  
+   
   <div class="container">
     <h2>Product Table</h2>
     <button class="btn btn-primary btn-lg pull-right" (click)="show()">Add Product</button><br />
@@ -34,7 +24,7 @@
         </thead>
         <tbody *ngFor="let p of products">
           <tr>
-            <td>{{p. Product_Id}}</td>
+            <td>{{p.Product_Id}}</td>
             <td>{{p.Product_Name}}</td>
             <td>{{p.Quantity}}</td>
             <td>{{p.Unit_Price}}</td>
@@ -156,9 +146,4 @@
       </div>
     </div>
 </div>
-    <footer class="container-fluid">
-      <p>Contact - 011 23456321</p>
-    </footer>
-
-</body>
-</html>
+    

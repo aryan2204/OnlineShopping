@@ -8,6 +8,7 @@ import {ProductViewComponent} from './product-view/product-view.component';
 import {OrderViewComponent} from './order-view/order-view.component';
 import {RetailerViewComponent} from './retailer-view/retailer-view.component';
 import { AdminComponent } from './admin/admin.component';
+import {WishlistComponent} from './wishlist/wishlist.component';
 
 
 const routes: Routes = [
@@ -34,6 +35,9 @@ const routes: Routes = [
   },
   {
     path: "admin",component: AdminComponent
+  },
+  {
+    path: "wishlist",component: WishlistComponent
   }
 ];
 
