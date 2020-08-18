@@ -20,6 +20,7 @@ export class SharedService
     public renewProfileData;
     public adminEmail;
     public CustomerId;
+    
 
     public getCustomerId(){
         return this.CustomerId;
