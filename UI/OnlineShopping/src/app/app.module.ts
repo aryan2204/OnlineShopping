@@ -39,6 +39,7 @@ import { SearchComponent } from './search/search.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { PaymentComponent } from './payment/payment.component';
+import { LoginService } from './services/login.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -77,7 +78,7 @@ import { PaymentComponent } from './payment/payment.component';
     NgbModule
   ],
   providers: [HomeService,OrderService,CartService,ProductService,RetailerService,RegistrationService
-    ,AuthenticationService,SharedService,WishlistDataService],
+    ,AuthenticationService,SharedService,WishlistDataService,LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

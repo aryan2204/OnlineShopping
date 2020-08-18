@@ -109,32 +109,32 @@ export class TopNavComponent implements OnInit {
     this.authService.removeToken();
   }
 
-  OnRegister()
-  {
-    this.registrationInputs=this.registrationForm.value;
-    console.log(this.registrationInputs);
-      this.regService.RegisterCustomer(this.registrationInputs)
-          .subscribe((result) => {
-            this.globalResponse = result;              
-          },
-          error => { //This is error part
-            this.alerts.push({
-              id: 2,
-              type: 'danger',
-              message: 'Registration failed with fallowing error:'+error,
-            });
-          },
-          () => {
-              //  This is Success part
-              this.alerts.push({
-                id: 1,
-                type: 'success',
-                message: 'Registration successful.',
-              });
+  // OnRegister()
+  // {
+  //   this.registrationInputs=this.registrationForm.value;
+  //   console.log(this.registrationInputs);
+  //     this.regService.RegisterCustomer(this.registrationInputs)
+  //         .subscribe((result) => {
+  //           this.globalResponse = result;              
+  //         },
+  //         error => { //This is error part
+  //           this.alerts.push({
+  //             id: 2,
+  //             type: 'danger',
+  //             message: 'Registration failed with fallowing error:'+error,
+  //           });
+  //         },
+  //         () => {
+  //             //  This is Success part
+  //             this.alerts.push({
+  //               id: 1,
+  //               type: 'success',
+  //               message: 'Registration successful.',
+  //             });
               
-              }
-            )
-          }
+  //             }
+  //           )
+  //         }
      public closeAlert(alert: IAlert) {
     const index: number = this.alerts.indexOf(alert);
     this.alerts.splice(index, 1);

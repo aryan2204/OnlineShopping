@@ -3,8 +3,7 @@ import {Registration} from '../models/customer.model';
 import {FormGroup,FormControl,Validators} from '@angular/forms';
 import {RegistrationService} from '../services/registration.service'
 import { Router } from '@angular/router';
-import { DatePipe } from '@angular/common';
-//import { SharedService } from '../services/sharedService';public sharedService:SharedService
+import { SharedService } from '../services/shared.service';
 import { combineLatest } from 'rxjs'
 
 @Component({
@@ -21,7 +20,7 @@ export class RegistrationComponent implements OnInit {
   nomatch:boolean;
   userId;
   public service;
-  constructor(private routes:Router,public datePipe:DatePipe, 
+  constructor(private routes:Router, public sharedService:SharedService,
     private registerationService:RegistrationService) {
       this.register=new Registration();
       this.registrationForm=new FormGroup({
@@ -35,7 +34,7 @@ export class RegistrationComponent implements OnInit {
             });
             this.showDetails=false;
             this.nomatch=false;
-            //this.service = sharedService;
+            this.service = sharedService;
      }
 
   public get FirstName(){
@@ -54,7 +53,7 @@ export class RegistrationComponent implements OnInit {
   public get Password(){
      return this.registrationForm.get('Password');
    }
-  public get confirmpw(){
+  public get confirmpassword(){
      return this.registrationForm.get('confirmpassword');
    }
 
@@ -62,7 +61,7 @@ export class RegistrationComponent implements OnInit {
    {
        console.log("In register");
 
-     if(this.Password.value==this.confirmpw.value)
+     if(this.Password.value==this.confirmpassword.value)
      {
        if(this.registrationForm.valid)
        {

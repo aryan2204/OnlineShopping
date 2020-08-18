@@ -6,6 +6,8 @@ import {FormGroup,FormControl,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import {LoginService} from '../services/login.service';
 import { Login } from '../models/login.model';
+import { SharedService } from '../services/shared.service';
+
 
 @Component({
   selector: 'app-user-login',
@@ -19,15 +21,15 @@ export class UserLoginComponent implements OnInit {
   public service;
   showError;
   mylogin:FormGroup;
-  constructor(private loginService:LoginService,private routes:Router) 
+  constructor(private loginService:LoginService,private routes:Router,private sharedService:SharedService) 
   {
-    //this.service=sharedService;
+    this.service=sharedService;
     this.login=new Login();
     this.showError=false;
     this.mylogin=new FormGroup({
       Password:new FormControl(null,[Validators.required]),
      // email:new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z 0-9 @ .]*')]),
-     Customer_EMail:new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z 0-9 @ .]*')]),
+     Email:new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z 0-9 @ .]*')]),
    // console.log(this.service.getuserData());
   })
 } 
@@ -35,7 +37,7 @@ export class UserLoginComponent implements OnInit {
    return this.mylogin.get('Password');
   }
 
-  public get Customer_EMail(){
+  public get Email(){
     return this.mylogin.get('Customer_EMail');
   }
 
@@ -44,9 +46,9 @@ export class UserLoginComponent implements OnInit {
       
       if(this.mylogin.valid)
       {
-        this.login.Customer_EMail=this.Customer_EMail.value;
+        this.login.Customer_EMail=this.Email.value;
         this.login.Password=this.Password.value;
-       this.loginService.login(this.login).subscribe((data)=>
+       this.loginService.loginUser(this.login).subscribe((data)=>
       {
           this.result=data;
           console.log("In user login");
@@ -67,7 +69,7 @@ export class UserLoginComponent implements OnInit {
   ngOnInit(): void {
 
     this.userDetails=this.service.getuserData();
-    console.log(this.userDetails);
+    // console.log(this.userDetails);
       this.login.Customer_EMail=this.userDetails.Email;
       this.login.Password=this.userDetails.Password;
       

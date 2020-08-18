@@ -1,8 +1,5 @@
 <div class="modal-body">
-    <ngb-tabset>
-<ngb-tab >
-    <ng-template ngbTabTitle><b>Login</b> </ng-template>
-    <ng-template ngbTabContent >
+ 
       <br>
         <form [formGroup]="mylogin">
             <div class="form-group">
@@ -21,7 +18,6 @@
             </div>
             <button type="button" style="margin-left: 39%;" [disabled]="!mylogin.valid" class="btn btn-outline-success" (click)="userLogin()"><b>Login</b></button>
         </form>
-    </ng-template>
-  </ngb-tab>
-</ngb-tabset>
+    
+<a href="registration">New User? Click Here</a>
 </div>

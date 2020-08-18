@@ -7,13 +7,13 @@ import { Admin } from '../models/admin.model'
 @Injectable()
 export class LoginService
 {
-    
+    login:Login[];
 constructor(private http:HttpClient)
 {
 
 }
 
-public login(login:Login){
+public loginUser(login:Login){
     return this.http.post("https://localhost:44308/api/Login",login);
 }
 
