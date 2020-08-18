@@ -27,9 +27,10 @@ export class RegistrationComponent implements OnInit {
           FirstName:new FormControl(null,[Validators.required,Validators.min(4)]),
           LastName:new FormControl(null,[Validators.required]),
           Email:new FormControl(null,[Validators.required,Validators.pattern('[a-zA-Z 0-9 @ .]*')]),
+          MobileNumber:new FormControl(null,[Validators.required,Validators.minLength(10)]),
           Address:new FormControl(null,[Validators.required]),
-            Password:new FormControl(null,[Validators.required,Validators.minLength(7)]),
-            confirmpassword:new FormControl(null,[Validators.required,Validators.minLength(7)])
+          Password:new FormControl(null,[Validators.required,Validators.minLength(7)]),
+          confirmpassword:new FormControl(null,[Validators.required,Validators.minLength(7)])
 
             });
             this.showDetails=false;
@@ -46,7 +47,9 @@ export class RegistrationComponent implements OnInit {
   public get Email(){
      return this.registrationForm.get('Email');
    }
-
+   public get MobileNumber(){
+    return this.registrationForm.get('MobileNumber');
+   }
   public get Address(){
      return this.registrationForm.get('Address');
    }
@@ -57,7 +60,7 @@ export class RegistrationComponent implements OnInit {
      return this.registrationForm.get('confirmpassword');
    }
 
-   OnRegister()
+   registeruser()
    {
        console.log("In register");
 
@@ -70,6 +73,7 @@ export class RegistrationComponent implements OnInit {
         this.register.Customer_FirstName=this.FirstName.value;
         this.register.Customer_LastName=this.LastName.value;
         this.register.Customer_EMail=this.Email.value;
+        this.register.Customer_Mobile_Number=this.MobileNumber.value;
         this.register.Customer_Address=this.Address.value;
         this.register.Password=this.Password.value;
         this.registerationService.RegisterCustomer(this.register).subscribe((data)=>

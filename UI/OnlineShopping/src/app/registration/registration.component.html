@@ -1,139 +1,71 @@
 <form [formGroup]="registrationForm">
-  <div class="container">
+
     <h1>Register</h1>
     <p>Please fill in this form to create an account.</p>
     <hr>
 
-    <div class="col-md-2">
-      <label for="FormControlFisrtName" style="color: lightseagreen;font-size: medium;"><b>FirstName:</b></label>
-    </div>
-    <div class="col-md-6">
-      <input type="text" formControlName="FirstName" placeholder="Customer_FirstName" class="form-control"
-        aria-label="Default" aria-describedby="inputGroup-sizing-default">
-    </div>
-    <div class="col-md-4">
+    <label>Firstname</label>
+       <input type="text" class="form-control" formControlName="FirstName">
+     <p class="alert alert-danger" *ngIf="FirstName.touched && FirstName.invalid">
+          <span class="alert alert-danger" *ngIf="FirstName.errors.required">Firstname cannot be empty</span>
+     </p>
+        <label>Lastname</label>
+        <input type="text" class="form-control" formControlName="LastName">
+      <p class="alert alert-danger" *ngIf="LastName.touched && LastName.invalid">
+           <span class="alert alert-danger" *ngIf="LastName.errors.required">Lastname cannot be empty</span>
+     </p>
 
-      <span style="font-weight: bold;color: red;"
-        *ngIf="!registrationForm.controls['FirstName'].valid&&registrationForm.controls['FirstName'].dirty">
-        <span *ngIf="registrationForm.controls.FirstName.errors.required">FirstName is Required.</span>
-        <span *ngIf="registrationForm.controls.FirstName.errors.minlength">FirstName minimum should be length of
-          3.</span>
-        <span *ngIf="registrationForm.controls.FirstName.errors.maxlength">FirstName maximum should be length of
-          20.</span>
-      </span>
+     <label>Email</label>
+        <input type="text" class="form-control" formControlName="Email">
+      <p class="alert alert-danger" *ngIf="Email.touched && Email.invalid">
+           <span class="alert alert-danger" *ngIf="Email.errors.required">Email cannot be empty</span>
+           <span class="alert alert-danger" *ngIf="Email.errors.pattern">Email should be valid</span>
+     </p>
 
-    </div>
+     <label>Mobile Number</label>
+     <input type="text" class="form-control" formControlName="MobileNumber">
+   <p class="alert alert-danger" *ngIf="MobileNumber.touched && MobileNumber.invalid">
+        <span class="alert alert-danger" *ngIf="MobileNumber.errors.required">MobileNumber cannot be empty</span>
+        <span class="alert alert-danger" *ngIf="MobileNumber.errors.pattern">MobileNumber should be valid</span>
+        <span class="alert alert-danger" *ngIf="MobileNumber.errors.minlength">MobileNumber should has minimum length 10</span>
+   </p>
 
-    
-      <div class="col-md-2">
-        <label for="FormControlLastName" style="color: lightseagreen;font-size: medium;"><b>LastName*:</b></label>
-      </div>
-      <div class="col-md-6">
-        <input type="text" formControlName="LastName" placeholder="Customer_LastName" class="form-control"
-          aria-label="Default" aria-describedby="inputGroup-sizing-default">
-      </div>
-      <div class="col-md-4">
+     <label>Address</label>
+        <input type="text" class="form-control" formControlName="Address">
+      <p class="alert alert-danger" *ngIf="Address.touched && Address.invalid">
+           <span class="alert alert-danger" *ngIf="Address.errors.required">Address cannot be empty</span>
+     </p>
 
-        <span style="font-weight: bold;color: red;"
-          *ngIf="!registrationForm.controls['LastName'].valid&&registrationForm.controls['LastName'].dirty">
-          <span *ngIf="registrationForm.controls.LastName.errors.required">LastName is Required.</span>
-          <span *ngIf="registrationForm.controls.LastName.errors.minlength">LastName minimum should be length of
-            3.</span>
-          <span *ngIf="registrationForm.controls.LastName.errors.maxlength">LastName maximum should be length of
-            20.</span>
-        </span>
+     <label>Password</label>
+       <input type="password" class="form-control"formControlName="Password" >
+       <p class="alert alert-danger" *ngIf="Password.touched && Password.invalid">
+        <span class="alert alert-danger" *ngIf="Password.errors.required">Password cannot be empty</span>
+        <span class="alert alert-danger" *ngIf="Password.errors.minlength">Password should has minimum length 7</span>
+    </p>
 
-      </div>
-
-
-
-      <div class="col-md-2">
-        <label for="FormControlPassword" style="color: lightseagreen;font-size: medium;"><b>Password*:</b></label>
-      </div>
-      <div class="col-md-6">
-        <input type="password" formControlName="Password" placeholder="Password" class="form-control"
-          aria-label="Default" aria-describedby="inputGroup-sizing-default">
-      </div>
-      <div class="col-md-4">
-        <span style="font-weight: bold;color: red;"
-          *ngIf="!registrationForm.controls['Password'].valid&&registrationForm.controls['Password'].dirty">
-          <span *ngIf="registrationForm.controls.Password.errors.required">Password is Required.</span>
-          <span *ngIf="registrationForm.controls.Password.errors.minlength">Password minimum should be length of
-            3.</span>
-          <span *ngIf="registrationForm.controls.Password.errors.maxlength">Password maximum should be length of
-            50.</span>
-        </span>
-      </div>
-
-      <div class="col-md-2">
-        <label for="FormControlPassword" style="color: lightseagreen;font-size: medium;"><b>Confirm Password*:</b></label>
-      </div>
-      <div class="col-md-6">
-        <input type="password" formControlName="confirmpassword" placeholder="Password" class="form-control"
-          aria-label="Default" aria-describedby="inputGroup-sizing-default">
-      </div>
-      <div class="col-md-4">
-        <span style="font-weight: bold;color: red;"
-          *ngIf="!registrationForm.controls['confirmpassword'].valid&&registrationForm.controls['Password'].dirty">
-          <span *ngIf="registrationForm.controls.confirmpassword.errors.required">confirm password is Required.</span>
-        </span>
-      </div>
-
-      <div class="col-md-2">
-        <label for="FormControlEmail" style="color: lightseagreen;font-size: medium;"><b>EMail*:</b></label>
-      </div>
-      <div class="col-md-6">
-        <input type="email" formControlName="Email" placeholder="Customer_EMail" class="form-control"
-          aria-label="Default" aria-describedby="inputGroup-sizing-default">
-      </div>
-      <div class="col-md-4">
-        <span style="font-weight: bold;color: red;"
-          *ngIf="!registrationForm.controls['Email'].valid&&registrationForm.controls['Email'].dirty">
-          <span *ngIf="registrationForm.controls.Email.errors.required">EMail is Required.</span>
-          <span *ngIf="registrationForm.controls.Email.errors.email">EMail is not in correct pattern.</span>
-        </span>
-      </div>
+    <label> Confirm Password</label>
+    <input type="password" class="form-control"formControlName="confirmpassword" >
+    <p class="alert alert-danger" *ngIf="confirmpassword.touched && confirmpassword.invalid">
+     <span class="alert alert-danger" *ngIf="confirmpassword.errors.required"> Confirm Password cannot be empty</span>
+     <span class="alert alert-danger" *ngIf="confirmpassword.errors.minlength">Confirm Password should has minimum length 7</span>
+ </p>
 
 
-     
-        <div class="col-md-2">
-          <label for="FormControlAddress" style="color: lightseagreen;font-size: medium;"><b>Address*:</b></label>
-        </div>
-        <div class="col-md-6">
-          <input type="text" formControlName="Address" class="form-control" aria-label="Default"
-            aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="col-md-4">
-          <span style="font-weight: bold;color: red;"
-            *ngIf="!registrationForm.controls['Address'].valid&&registrationForm.controls['Customer_Address'].dirty">
-            <span *ngIf="registrationForm.controls.Address.errors.required">Address is Required.</span>
-          </span>
-        </div>
-        
-
-
-        <div class="col-md-2">
-          <label for="FormControlPhone" style="color: lightseagreen;font-size: medium;"><b>MobileNumber*:</b></label>
-        </div>
-        <div class="col-md-6">
-          <input type="text" formControlName="Customer_Mobile_Number" class="form-control" aria-label="Default"
-            aria-describedby="inputGroup-sizing-default">
-        </div>
-        <div class="col-md-4">
-          <span style="font-weight: bold;color: red;"
-            *ngIf="!registrationForm.controls['Customer_Mobile_Number'].valid&&registrationForm.controls['Customer_Mobile_Number'].dirty">
-            <span *ngIf="registrationForm.controls.Customer_Mobile_Number.errors.required">Mobile_Number is
-              Required.</span>
-          </span>
-        </div>
+  
       
 
 
         <hr>
 
         <button type="button" style="margin-left: 39%;" [disabled]="registrationForm.invalid"
-          class="btn btn-outline-success" (click)="OnRegister()"><b>Register</b></button>
-        </div>
+          class="btn btn-outline-success" (click)="registeruser()"><b>Register</b></button>
+          <div style="text-align: center;" *ngIf="nomatch">
+          <span style="border:1px solid red;">
+           <b> 1. Password and Confirm Password Does Not Matches <br/>
+            2. Check Your Entries Again
+           </b>
+          </span>
+      </div>
 
       <div class="container signin">
         <p>Already have an account? <a href="userlogin">Sign in</a>.</p>

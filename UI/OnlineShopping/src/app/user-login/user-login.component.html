@@ -1,34 +1,29 @@
-<table>
-<tr>
-  <td>
-    <input type="text" name="txtPass" placeholder="Enter mail" class="form-control" [(ngModel)]="login.Customer_EMail" />
-</td>
-</tr>
-<tr>
-    <td>
-        <input type="password" name="txtPass" placeholder="Enter Password" class="form-control" [(ngModel)]="login.Password" />
-    </td>
-</tr>
-<tr>
-    <td>
-        <button (click)="userLogin()" class="btn btn-primary">Login</button>  
-        
-    </td>
-</tr>
-<tr>
-    <td>
-        <input type="checkbox" value="Remember me" checked/> Remember me
-    </td>
-</tr>
-<tr>
-    <td>
-       
-        <label>Forgot</label> <a class="nav-link" routerLink="/forgotpassword"><u>password?</u></a>
-    </td>
-</tr>
-</table>
-<br/>
-<p>
-
-<label>Not having Account ? </label> <a class="nav-link" routerLink="/register"><u>Register here</u></a>
-</p>
+<h1>Login !!</h1>
+<div class="alert alert-success">
+    <form [formGroup]="mylogin">
+        <label>Email</label>
+        <input type="text" class="form-control" formControlName="em" [(ngModel)]="login.Customer_EMail">
+      <p class="alert alert-danger" *ngIf="Email.touched && Email.invalid">
+           <span class="alert alert-danger" *ngIf="Email.errors.required">Email cannot be empty</span>
+           <span class="alert alert-danger" *ngIf="Email.errors.pattern">Email should be valid</span>
+     </p>
+ 
+         <label>Password</label>
+         <input type="password" class="form-control" formControlName="password" [(ngModel)]="login.Password"/>
+         <p class="alert alert-danger" *ngIf="Password.touched && Password.invalid">
+             <span class="alert alert-danger" *ngIf="Password.errors.required">Password cannot be empty</span>    
+        </p>
+          <button (click)="userLogin()" class="btn btn-primary">Login</button>
+                   <!----<input type="checkbox" value="Remember me" checked/> Remember me-->
+                 
+                      <br/><br/>
+                     <label>Forgot Password</label> <a class="nav-link" routerLink="/resetpassword"><u>Forgot password?</u></a>
+             <label>Not having Account ?</label> <a class="nav-link" routerLink="/register"><u>Register here</u></a>
+     </form>
+     <div style="text-align: center;" *ngIf="showError">
+         <span style="border:1px solid red;">
+          <b> 
+           Invalid Credentials!!
+          </b>
+         </span>
+     </div>

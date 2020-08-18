@@ -15,3 +15,4 @@ export class RegistrationService {
     return this.httpClient.post("http://localhost:58620/api/tbl_User",customer);
     
 }
+}
