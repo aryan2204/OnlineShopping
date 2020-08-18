@@ -12,10 +12,14 @@ export class RetailerService
     }
     public getRetailer()
     {
-        return this.http.get("http://localhost:63788/api/Retailers");
+        return this.http.get("http://localhost:64166/api/Retailers");
     }
     public postRetailer(retailer:Retailer)
     {
-        return this.http.post("http://localhost:59289/api/Retailers",retailer);
+        return this.http.post("http://localhost:64166/api/Retailers",retailer);
+    }
+    public deleteRetailer(id:number)
+    {
+        return this.http.delete("http://localhost:64166/api/Retailers"+id);
     }
 }

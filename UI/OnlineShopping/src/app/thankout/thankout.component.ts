@@ -3,7 +3,7 @@ import {Router} from "@angular/router";
 import {OrderService} from "../services/order.service";
 
 @Component({
-  selector: 'mg-thankyou',
+  selector: 'app-thankout',
   templateUrl: './thankout.component.html',
   styleUrls: ['./thankout.component.css']
 })
@@ -22,7 +22,7 @@ export class ThankyouComponent implements OnInit {
       total: Number
     };
 
-    this.message = state.message;
+    //this.message = state.message;
     this.orderId = state.OrderNumber;
     this.products = state.products;
     this.cartTotal = state.total;

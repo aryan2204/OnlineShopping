@@ -1,6 +1,7 @@
+  
 export class Product
 {
-   Product_Id :number;
+   Product_Id :string;
    Product_Name:string;
    Quantity:number;
    Unit_Price:number;
@@ -8,7 +9,7 @@ export class Product
    Pictures:string;
    Color:string;
    Size:string;
-   BrandName:string;
-   Category_Id:string;
    Retailer_Id:number;
+   Category_Id:string;
+   BrandName:string;
 }

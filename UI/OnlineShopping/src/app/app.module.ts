@@ -19,7 +19,7 @@ import { UserDashboardComponent } from './user-dashboard/user-dashboard.componen
 import { AdminComponent } from './admin/admin.component';
 import { ProductViewComponent } from './product-view/product-view.component';
 import { OrderViewComponent } from './order-view/order-view.component';
-import { RetailerViewComponent } from './retailer-view/retailer-view.component';
+import { RetailerviewComponent } from './retailer-view/retailer-view.component';
 import {ProductService} from './services/productdetail.service';
 import { RetailerService } from './services/retailor.service';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
@@ -28,7 +28,17 @@ import {AuthenticationService} from './services/authentication.service';
 import {SharedService} from './services/shared.service';
 import { WishlistComponent } from './wishlist/wishlist.component'
 import { WishlistDataService } from './services/wishlist.service';
-
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { UserInfoComponent } from './user-info/user-info.component';
+import { AddressComponent } from './address/address.component';
+import { OderHistoryComponent } from './oder-history/oder-history.component';
+import { TopNavComponent } from './top-nav/top-nav.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgxSpinnerModule  } from "ngx-spinner";
+import { SearchComponent } from './search/search.component';
+import { UserLoginComponent } from './user-login/user-login.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { PaymentComponent } from './payment/payment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,17 +53,28 @@ import { WishlistDataService } from './services/wishlist.service';
     AdminComponent,
     ProductViewComponent,
     OrderViewComponent,
-    RetailerViewComponent,
-    WishlistComponent
+    RetailerviewComponent,
+    WishlistComponent,
+    DashboardComponent,
+    UserInfoComponent,
+    AddressComponent,
+    OderHistoryComponent,
+    TopNavComponent,
+    SearchComponent,
+    UserLoginComponent,
+    RegistrationComponent,
+    PaymentComponent
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    NgxSpinnerModule,
     FormsModule,
     ReactiveFormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    NgbModule
   ],
   providers: [HomeService,OrderService,CartService,ProductService,RetailerService,RegistrationService
     ,AuthenticationService,SharedService,WishlistDataService],

@@ -1,0 +1,27 @@
+<div class="modal-body">
+    <ngb-tabset>
+<ngb-tab >
+    <ng-template ngbTabTitle><b>Login</b> </ng-template>
+    <ng-template ngbTabContent >
+      <br>
+        <form [formGroup]="mylogin">
+            <div class="form-group">
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                  </div>
+                  <input type="text" formControlName="Email" class="form-control" placeholder="Enter Your Email" aria-label="Customer_EMail" aria-describedby="basic-addon1">
+              </div>
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">*</span>
+                  </div>
+                  <input type="password" formControlName="Password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+              </div>
+            </div>
+            <button type="button" style="margin-left: 39%;" [disabled]="!mylogin.valid" class="btn btn-outline-success" (click)="userLogin()"><b>Login</b></button>
+        </form>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>
+</div>

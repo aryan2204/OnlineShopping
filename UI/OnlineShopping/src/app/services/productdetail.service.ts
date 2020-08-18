@@ -1,27 +1,46 @@
 import { Product } from '../models/product.model'
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class ProductService
 {
+    url = "http://localhost:59289/api/ProductDetails";
+    product:Product[];
     constructor(private http: HttpClient)
     {
     }
-    public getProducts()
+    public getProducts():Observable<Product[]>
     {
-        return this.http.get("http://localhost:63788/api/ProductDetails");
+       return this.http.get<Product[]>(this.url);
     }
-    public postProduct(product:Product)
+    public getProdById(prodId:string):Observable<Product>
     {
-        return this.http.post("http://localhost:63788/api/ProductDetails",product);
+        return this.http.get<Product>(this.url+"/"+prodId);
     }
-    public putProduct(id:number, prod:Product)
+    public postProduct(product:Product):Observable<Product>
     {
-        return this.http.put("http://localhost:63788/api/ProductDetails"+id,prod);
+        let httpHeaders = new HttpHeaders()
+        .set('Content-Type','application/json');
+        let options = {
+          headers:httpHeaders
+        };
+        return this.http.post<Product>(this.url,product,options);
     }
-    public delProduct(id:number)
+    public putProduct(prod:Product):Observable<number>
     {
-        return this.http.delete("http://localhost:63788/api/ProductDetails"+id);
+        let httpHeaders = new HttpHeaders()
+        .set('Content-Type','application/json');
+        let options = {
+          headers:httpHeaders
+        };
+        return this.http.put<number>(this.url+"/"+prod.Product_Id,prod,options);
+    }
+    public delProduct(id:string):Observable<number>
+    {
+        let httpHeaders = new HttpHeaders()
+        .set('Content-Type','application/json');
+        return this.http.delete<number>(this.url+"/"+id);
     }
 }

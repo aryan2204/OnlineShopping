@@ -1,11 +1,14 @@
-<section class="wishlistapp">
-    <header class ="header">
-      <h1>WishList</h1>
-      </header>
-      <div class="row">
-        <div class="col my-4"></div>
-      </div>
-</section>
+<br/>
+<div class="container">
+  <div *ngIf="wishlistData.data[0].Quantity === 0;" class="text-center my-5">
+    <h4>Your Wishlist Is Empty</h4>
+    <button class="btn btn-primary btn-lg mt-3" routerLink="/">GO TO SHOP</button>
+  </div>
+
+  <ng-container *ngIf="wishlistData.data[0].Quantity !== 0">
+<div>
+<b><h3>WishList</h3></b>
+</div>
 <div class="row">
     <div class="col my-4"></div>
     <table class="table">
@@ -34,3 +37,4 @@
         </tbody>
         </table>
 </div>
+</ng-container>

@@ -8,19 +8,20 @@ import { Retailer } from '../models/retailer.model';
   templateUrl: './retailer-view.component.html',
   styleUrls: ['./retailer-view.component.css']
 })
-export class RetailerViewComponent implements OnInit {
-  retailers:any = [];
+export class RetailerviewComponent implements OnInit {
+retailers: any = [];
 showToggle:Boolean;
 showModal: Boolean;
 myForm:FormGroup;
-retailer:Retailer;  
+retailer:Retailer;
+id:number;
 
   constructor(private retService:RetailerService,private fb: FormBuilder) { 
     this.retailer = new Retailer();
     this.myForm= this.fb.group({
-      RetName:new FormControl(null,Validators.required),
-      RetEmail:new FormControl(null,Validators.required),
-      RetNum:new FormControl(null,Validators.required)
+      RetName:new FormControl('',Validators.required),
+      RetEmail:new FormControl('',Validators.required),
+      RetNum:new FormControl('',Validators.required)
     })
     this.showToggle=false;
   }
@@ -54,15 +55,25 @@ show()
   }
   onSubmit() 
   {
+    this.retailer.Retailer_Name=this.RetName.value;
+    this.retailer.Retailer_EMail=this.RetEmail.value;
+    this.retailer.MobileNum=this.RetNum.value;
     if(this.myForm.valid)
     {
       this.retService.postRetailer(this.retailer).subscribe((data)=>
       {
-        this.retailers = data;
-        console.log(data);
+        this.retailers = data as [];
+        //console.log(data);
       })
       this.hide();
     }
+  }
+  delete()
+  {
+    this.retService.deleteRetailer(this.id).subscribe((data)=>
+    {
+      this.retailers = data;
+    })
   }
   onClose(){
     this.myForm.reset();

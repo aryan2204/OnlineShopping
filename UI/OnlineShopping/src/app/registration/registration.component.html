@@ -1,0 +1,117 @@
+<ng-template ngbTabTitle><b>Register</b> </ng-template>
+            <ng-template ngbTabContent>
+              <br>
+                <form [formGroup]="registrationForm" >
+                    <div class="form-group">
+                      <div class="row">
+                        <div class="col-md-2">
+                          <label for="FormControlFisrtName" style="color: lightseagreen;font-size: medium;" ><b>FirstName*:</b></label>
+                        </div>
+                        <div class="col-md-6">
+                          <input type="text" formControlName="FirstName" placeholder="Customer_FirstName" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="col-md-4">
+  
+                          <span style="font-weight: bold;color: red;" *ngIf="!registrationForm.controls['FirstName'].valid&&registrationForm.controls['FirstName'].dirty">
+                            <span *ngIf="registrationForm.controls.FirstName.errors.required">FirstName is Required.</span>
+                            <span *ngIf="registrationForm.controls.FirstName.errors.minlength">FirstName minimum should be length of 3.</span>
+                            <span *ngIf="registrationForm.controls.FirstName.errors.maxlength">FirstName maximum should be length of 20.</span>
+                          </span>
+                         
+                        </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                        <div class="col-md-2">
+                          <label for="FormControlLastName" style="color: lightseagreen;font-size: medium;" ><b>LastName*:</b></label>
+                        </div>
+                        <div class="col-md-6">
+                          <input type="text" formControlName="LastName" placeholder="Customer_LastName" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="col-md-4">
+  
+                          <span style="font-weight: bold;color: red;" *ngIf="!registrationForm.controls['LastName'].valid&&registrationForm.controls['LastName'].dirty">
+                            <span *ngIf="registrationForm.controls.LastName.errors.required">LastName is Required.</span>
+                            <span *ngIf="registrationForm.controls.LastName.errors.minlength">LastName minimum should be length of 3.</span>
+                            <span *ngIf="registrationForm.controls.LastName.errors.maxlength">LastName maximum should be length of 20.</span>
+                          </span>
+                         
+                        </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                        <div class="col-md-2">
+                          <label for="FormControlPassword" style="color: lightseagreen;font-size: medium;" ><b>Password*:</b></label>
+                        </div>
+                        <div class="col-md-6">
+                          <input type="password" formControlName="Password" placeholder="Password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-weight: bold;color: red;"  *ngIf="!registrationForm.controls['Password'].valid&&registrationForm.controls['Password'].dirty">
+                                <span *ngIf="registrationForm.controls.Password.errors.required">Password is Required.</span>
+                                <span *ngIf="registrationForm.controls.Password.errors.minlength">Password minimum should be length of 3.</span>
+                                <span *ngIf="registrationForm.controls.Password.errors.maxlength">Password maximum should be length of 50.</span>
+                              </span>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                              <label for="FormControlPassword" style="color: lightseagreen;font-size: medium;" ><b>Password*:</b></label>
+                            </div>
+                            <div class="col-md-6">
+                              <input type="password" formControlName="confirmpassword" placeholder="Password" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                            </div>
+                            <div class="col-md-4">
+                                <span style="font-weight: bold;color: red;"  *ngIf="!registrationForm.controls['confirmpassword'].valid&&registrationForm.controls['Password'].dirty">
+                                    <span *ngIf="registrationForm.controls.confirmpassword.errors.required">confirm password is Required.</span>
+                                  </span>
+                            </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                        <div class="col-md-2">
+                          <label for="FormControlEmail" style="color: lightseagreen;font-size: medium;" ><b>EMail*:</b></label>
+                        </div>
+                        <div class="col-md-6">
+                          <input type="email" formControlName="Email" placeholder="Customer_EMail" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-weight: bold;color: red;" *ngIf="!registrationForm.controls['Email'].valid&&registrationForm.controls['Email'].dirty">
+                                <span *ngIf="registrationForm.controls.Email.errors.required">EMail is Required.</span>
+                                <span *ngIf="registrationForm.controls.Email.errors.email">EMail is not in correct pattern.</span>
+                              </span>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                        <div class="col-md-2">
+                          <label for="FormControlAddress" style="color: lightseagreen;font-size: medium;" ><b>Address*:</b></label>
+                        </div>
+                        <div class="col-md-6">
+                          <input type="text" formControlName="Address" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-weight: bold;color: red;" *ngIf="!registrationForm.controls['Address'].valid&&registrationForm.controls['Customer_Address'].dirty">
+                                <span *ngIf="registrationForm.controls.Address.errors.required">Address is Required.</span>
+                              </span>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="row">
+                        <div class="col-md-2">
+                          <label for="FormControlPhone" style="color: lightseagreen;font-size: medium;" ><b>MobileNumber*:</b></label>
+                        </div>
+                        <div class="col-md-6">
+                          <input type="text" formControlName="Customer_Mobile_Number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                        </div>
+                        <div class="col-md-4">
+                            <span style="font-weight: bold;color: red;" *ngIf="!registrationForm.controls['Customer_Mobile_Number'].valid&&registrationForm.controls['Customer_Mobile_Number'].dirty">
+                                <span *ngIf="registrationForm.controls.Customer_Mobile_Number.errors.required">Mobile_Number is Required.</span>
+                              </span>
+                        </div>
+                      </div>
+                      <br>
+                      <button type="button" style="margin-left: 39%;" [disabled]="registrationForm.invalid" class="btn btn-outline-success" (click)="OnRegister(registrationForm.value)"><b>Register</b></button>
+                    </div>
+                </div>
+            </form>
+        </ng-template>

@@ -1,14 +1,8 @@
-<!-- <ngx-spinner
-  bdColor= "rgba(151,149,149,0.4)"
-  size="large"
-  color="orange"
-  type="ball-clip-rotate-pulse"
-  fullScreen="true"
->
-  <p style="font-size: 20px; color: black">Booking Order...</p>
-</ngx-spinner>
+<ngx-spinner bdColor="rgba(51, 51, 51, 0.8)" size="default" type="ball-spin-clockwise">  
+  <p style="color: white">Please Wait. </p>  
+  </ngx-spinner> 
 
-<div class="section" *ngIf="cartData.total > 0">
+<div class="section" *ngIf="cartData.Total_Amount > 0">
 
 <div class="container">
   
@@ -124,7 +118,7 @@
 </div>
 
 
-<div class="text-center my-5" *ngIf="cartData.total <= 0">
+<div class="text-center my-5" *ngIf="cartData.Total_Amount <= 0">
   <h4>Your Cart Is Empty</h4>
   <button class="btn btn-primary btn-lg mt-3" routerLink="/">GO TO SHOP</button>
-</div> -->
+</div>

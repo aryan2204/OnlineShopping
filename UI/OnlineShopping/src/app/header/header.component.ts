@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {HomeModel} from '../models/Home.model';
+import {HomeService} from '../services/home.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-
-  constructor() { }
+  product:HomeModel[];
+  constructor(private homeService:HomeService) { }
 
   ngOnInit(): void {
   }
-
 }

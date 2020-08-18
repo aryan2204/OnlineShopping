@@ -1,10 +1,10 @@
 export interface HomeModel {
-    Product_Id: Number;
+    Product_Id: number;
     Product_Name: String;
     Product_Description: String;
     Pictures: String;
-    Unit_Price: Number;
-    Quantity: Number;
+    Unit_Price: number;
+    Quantity: number;
     Size: String;
     Color: String;
   }

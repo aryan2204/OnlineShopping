@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient,HttpClientModule } from '@angular/common/http';
-//import { Http, Response } from '@angular/http';  
+import {Registration} from '../models/customer.model';
 import { Observable, of, throwError, pipe} from "rxjs"
 import { map, filter, catchError, mergeMap } from 'rxjs/operators';
 
@@ -9,12 +9,13 @@ import { map, filter, catchError, mergeMap } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class RegistrationService {  
-
-  public apiURL:string="http://localhost:44379//api/Registrations";
+export class RegistrationService { 
+   
+public apiURL:string="http://localhost:44379//api/Registrations";
+ 
   constructor(private httpClient:HttpClient) { }
 
-  RegisterCustomer (customer:any)
+  RegisterCustomer (customer:Registration)
   {
     return this.httpClient.post(this.apiURL,customer)
     .pipe(
