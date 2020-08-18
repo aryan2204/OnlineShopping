@@ -44,6 +44,7 @@ export class ProductComponent implements OnInit {
   }
 
 addToCart(id: Number) {
+  
   this.cartService.AddProductToCart(id, this.quantityInput.nativeElement.value);
   window.confirm('product added');
 }

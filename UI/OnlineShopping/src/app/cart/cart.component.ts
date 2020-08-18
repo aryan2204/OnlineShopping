@@ -12,7 +12,7 @@ export class CartComponent implements OnInit {
   cartData: CartModel;
   cartTotal: Number;
   subTotal: Number;
-
+  
   constructor(public cartService: CartService) {
   }
 
@@ -24,5 +24,6 @@ export class CartComponent implements OnInit {
   ChangeQuantity(Product_Id: Number, increaseQuantity: Boolean) {
     this.cartService.UpdateCartData(Product_Id, increaseQuantity);
   }
+
 
 }

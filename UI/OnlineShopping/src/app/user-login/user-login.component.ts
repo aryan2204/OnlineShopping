@@ -44,10 +44,11 @@ export class UserLoginComponent implements OnInit {
     userLogin()
     {
       
-      if(this.mylogin.valid)
-      {
-        this.login.Customer_EMail=this.Email.value;
-        this.login.Password=this.Password.value;
+      // if(this.mylogin.valid)
+      // {
+      // }
+        // this.login.Customer_EMail=this.Email.value;
+        // this.login.Password=this.Password.value;
        this.loginService.loginUser(this.login).subscribe((data)=>
       {
           this.result=data;
@@ -55,11 +56,13 @@ export class UserLoginComponent implements OnInit {
           if(this.result!=null)
           {
             
-            this.service.setuserId(this.result);
-            this.routes.navigate(["/userhome"]);
+            this.service.setCustomerId(this.result);
+            console.log(this.service.getCustomerId());
+            this.routes.navigate(["/"]);
+            
           }
        })
-      }
+      
 
        if(this.result==null)
        {
