@@ -11,15 +11,18 @@ namespace OnlineShopping.Models
 {
     using System;
     
-    public partial class ProductByid_Result
+    public partial class SearchProduct_Result
     {
         public string Product_Id { get; set; }
         public string Product_Name { get; set; }
+        public int Quantity { get; set; }
         public double Unit_Price { get; set; }
         public string Product_Description { get; set; }
-        public string BrandName { get; set; }
+        public string Pictures { get; set; }
         public string Color { get; set; }
         public string Size { get; set; }
-        public string Pictures { get; set; }
+        public Nullable<int> Retailer_Id { get; set; }
+        public string Category_Id { get; set; }
+        public string BrandName { get; set; }
     }
 }

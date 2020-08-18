@@ -11,27 +11,29 @@ namespace OnlineShopping.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract]
     public partial class Order
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Order()
-        {
-            this.OrderDetails = new HashSet<OrderDetail>();
-        }
-    
+        [DataMember]
         public string Order_Id { get; set; }
+        [DataMember]
         public string Order_Status { get; set; }
+        [DataMember]
         public Nullable<int> Customer_Id { get; set; }
+        [DataMember]
         public int OrderNumber { get; set; }
+        [DataMember]
         public Nullable<System.DateTime> Order_Date { get; set; }
+        [DataMember]
         public Nullable<int> Payment_Id { get; set; }
+        [DataMember]
         public double Unit_Price { get; set; }
+        [DataMember]
         public double Total_Amount { get; set; }
     
         public virtual Customer Customer { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
         public virtual Payment Payment { get; set; }
     }
 }

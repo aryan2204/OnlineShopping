@@ -90,10 +90,10 @@
     <EntitySetMapping Name="Retailers">
       <EntityTypeMapping TypeName="Model.Retailer">
         <MappingFragment StoreEntitySet="Retailer">
-          <ScalarProperty Name="MobileNum" ColumnName="MobileNum" />
           <ScalarProperty Name="Retailer_Id" ColumnName="Retailer_Id" />
           <ScalarProperty Name="Retailer_Name" ColumnName="Retailer_Name" />
           <ScalarProperty Name="Retailer_EMail" ColumnName="Retailer_EMail" />
+          <ScalarProperty Name="MobileNum" ColumnName="MobileNum" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -103,51 +103,29 @@
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
           <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
-          <ScalarProperty Name="Name" ColumnName="Name" />
           <ScalarProperty Name="Qunatity" ColumnName="Qunatity" />
           <ScalarProperty Name="Description" ColumnName="Description" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="DeleteProductDetails" FunctionName="Model.Store.DeleteProductDetails" />
-    <FunctionImportMapping FunctionImportName="DeleteProductForRetailer" FunctionName="Model.Store.DeleteProductForRetailer" />
-    <FunctionImportMapping FunctionImportName="InsertProductDetails" FunctionName="Model.Store.InsertProductDetails" />
+    <FunctionImportMapping FunctionImportName="CustomerDetails" FunctionName="Model.Store.CustomerDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.CustomerDetails_Result">
+          <ScalarProperty Name="Customer_FirstName" ColumnName="Customer_FirstName" />
+          <ScalarProperty Name="Customer_LastName" ColumnName="Customer_LastName" />
+          <ScalarProperty Name="Customer_EMail" ColumnName="Customer_EMail" />
+          <ScalarProperty Name="Customer_Mobile_Number" ColumnName="Customer_Mobile_Number" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Customer_Address" ColumnName="Customer_Address" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeleteRetailer" FunctionName="Model.Store.DeleteRetailer" />
+    <FunctionImportMapping FunctionImportName="InsertProduct_Details" FunctionName="Model.Store.InsertProduct_Details" />
+    <FunctionImportMapping FunctionImportName="InsertRetailer" FunctionName="Model.Store.InsertRetailer" />
     <FunctionImportMapping FunctionImportName="LoginAdmin" FunctionName="Model.Store.LoginAdmin" />
     <FunctionImportMapping FunctionImportName="LoginCustomer" FunctionName="Model.Store.LoginCustomer" />
     <FunctionImportMapping FunctionImportName="LoginRetailer" FunctionName="Model.Store.LoginRetailer" />
-    <FunctionImportMapping FunctionImportName="ProductView" FunctionName="Model.Store.ProductView">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="Model.ProductView_Result">
-          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
-          <ScalarProperty Name="Unit_Price" ColumnName="Unit_Price" />
-          <ScalarProperty Name="Product_Description" ColumnName="Product_Description" />
-          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
-          <ScalarProperty Name="Color" ColumnName="Color" />
-          <ScalarProperty Name="Size" ColumnName="Size" />
-          <ScalarProperty Name="Pictures" ColumnName="Pictures" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="UpdateAdminPassword" FunctionName="Model.Store.UpdateAdminPassword" />
-    <FunctionImportMapping FunctionImportName="UpdateCustomerPassword" FunctionName="Model.Store.UpdateCustomerPassword" />
-    <FunctionImportMapping FunctionImportName="UpdateProductDetails" FunctionName="Model.Store.UpdateProductDetails" />
-    <FunctionImportMapping FunctionImportName="UpdateProductForRetailer" FunctionName="Model.Store.UpdateProductForRetailer" />
-    <FunctionImportMapping FunctionImportName="UpdateRetailerPassword" FunctionName="Model.Store.UpdateRetailerPassword" />
-    <FunctionImportMapping FunctionImportName="ViewProductDetails" FunctionName="Model.Store.ViewProductDetails">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="Model.ViewProductDetails_Result">
-          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
-          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
-          <ScalarProperty Name="Product_Description" ColumnName="Product_Description" />
-          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-          <ScalarProperty Name="Unit_Price" ColumnName="Unit_Price" />
-          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
-          <ScalarProperty Name="Size" ColumnName="Size" />
-          <ScalarProperty Name="Pictures" ColumnName="Pictures" />
-          <ScalarProperty Name="Color" ColumnName="Color" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="ProductByid" FunctionName="Model.Store.ProductByid">
       <ResultMapping>
         <ComplexTypeMapping TypeName="Model.ProductByid_Result">
@@ -162,9 +140,19 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <FunctionImportMapping FunctionImportName="InsertProduct_Details" FunctionName="Model.Store.InsertProduct_Details" />
-    <FunctionImportMapping FunctionImportName="DeleteRetailer" FunctionName="Model.Store.DeleteRetailer" />
-    <FunctionImportMapping FunctionImportName="InsertRetailer" FunctionName="Model.Store.InsertRetailer" />
+    <FunctionImportMapping FunctionImportName="ProductView" FunctionName="Model.Store.ProductView">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.ProductView_Result">
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Unit_Price" ColumnName="Unit_Price" />
+          <ScalarProperty Name="Product_Description" ColumnName="Product_Description" />
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Pictures" ColumnName="Pictures" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="RetailerView" FunctionName="Model.Store.RetailerView">
       <ResultMapping>
         <ComplexTypeMapping TypeName="Model.RetailerView_Result">
@@ -172,6 +160,63 @@
           <ScalarProperty Name="Retailer_Name" ColumnName="Retailer_Name" />
           <ScalarProperty Name="Retailer_EMail" ColumnName="Retailer_EMail" />
           <ScalarProperty Name="MobileNum" ColumnName="MobileNum" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SearchProduct" FunctionName="Model.Store.SearchProduct">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.SearchProduct_Result">
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Unit_Price" ColumnName="Unit_Price" />
+          <ScalarProperty Name="Product_Description" ColumnName="Product_Description" />
+          <ScalarProperty Name="Pictures" ColumnName="Pictures" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Retailer_Id" ColumnName="Retailer_Id" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SearchProductName" FunctionName="Model.Store.SearchProductName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.SearchProductName_Result">
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Unit_Price" ColumnName="Unit_Price" />
+          <ScalarProperty Name="Product_Description" ColumnName="Product_Description" />
+          <ScalarProperty Name="Pictures" ColumnName="Pictures" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Retailer_Id" ColumnName="Retailer_Id" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdateAdminPassword" FunctionName="Model.Store.UpdateAdminPassword" />
+    <FunctionImportMapping FunctionImportName="UpdateCustomerPassword" FunctionName="Model.Store.UpdateCustomerPassword" />
+    <FunctionImportMapping FunctionImportName="UpdateRetailerPassword" FunctionName="Model.Store.UpdateRetailerPassword" />
+    <FunctionImportMapping FunctionImportName="DeleteProductDetails1" FunctionName="Model.Store.DeleteProductDetails" />
+    <FunctionImportMapping FunctionImportName="InsertProductDetails1" FunctionName="Model.Store.InsertProductDetails" />
+    <FunctionImportMapping FunctionImportName="UpdateProductDetails1" FunctionName="Model.Store.UpdateProductDetails" />
+    <FunctionImportMapping FunctionImportName="ViewProductDetails1" FunctionName="Model.Store.ViewProductDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.ViewProductDetails1_Result">
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Unit_Price" ColumnName="Unit_Price" />
+          <ScalarProperty Name="Product_Description" ColumnName="Product_Description" />
+          <ScalarProperty Name="Pictures" ColumnName="Pictures" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Retailer_Id" ColumnName="Retailer_Id" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>

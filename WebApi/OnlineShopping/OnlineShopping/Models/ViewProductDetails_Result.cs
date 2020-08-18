@@ -13,7 +13,7 @@ namespace OnlineShopping.Models
     
     public partial class ViewProductDetails_Result
     {
-        public int Product_Id { get; set; }
+        public string Product_Id { get; set; }
         public string Product_Name { get; set; }
         public string Product_Description { get; set; }
         public int Quantity { get; set; }

@@ -37,6 +37,11 @@ namespace OnlineShopping.Models
         public virtual DbSet<Retailer> Retailers { get; set; }
         public virtual DbSet<Wishlist> Wishlists { get; set; }
     
+        public virtual ObjectResult<CustomerDetails_Result> CustomerDetails()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<CustomerDetails_Result>("CustomerDetails");
+        }
+    
         public virtual int DeleteProductDetails(Nullable<int> id)
         {
             var idParameter = id.HasValue ?
@@ -53,6 +58,113 @@ namespace OnlineShopping.Models
                 new ObjectParameter("name", typeof(string));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteProductForRetailer", nameParameter);
+        }
+    
+        public virtual int DeleteRetailer(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteRetailer", idParameter);
+        }
+    
+        public virtual int InsertProdDetails(Nullable<int> id, string name, Nullable<int> quan, Nullable<double> price, string prodDescription, string pic, string col, string size, Nullable<int> retID, string category, string brand)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            var quanParameter = quan.HasValue ?
+                new ObjectParameter("quan", quan) :
+                new ObjectParameter("quan", typeof(int));
+    
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("price", price) :
+                new ObjectParameter("price", typeof(double));
+    
+            var prodDescriptionParameter = prodDescription != null ?
+                new ObjectParameter("prodDescription", prodDescription) :
+                new ObjectParameter("prodDescription", typeof(string));
+    
+            var picParameter = pic != null ?
+                new ObjectParameter("pic", pic) :
+                new ObjectParameter("pic", typeof(string));
+    
+            var colParameter = col != null ?
+                new ObjectParameter("col", col) :
+                new ObjectParameter("col", typeof(string));
+    
+            var sizeParameter = size != null ?
+                new ObjectParameter("size", size) :
+                new ObjectParameter("size", typeof(string));
+    
+            var retIDParameter = retID.HasValue ?
+                new ObjectParameter("retID", retID) :
+                new ObjectParameter("retID", typeof(int));
+    
+            var categoryParameter = category != null ?
+                new ObjectParameter("category", category) :
+                new ObjectParameter("category", typeof(string));
+    
+            var brandParameter = brand != null ?
+                new ObjectParameter("brand", brand) :
+                new ObjectParameter("brand", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertProdDetails", idParameter, nameParameter, quanParameter, priceParameter, prodDescriptionParameter, picParameter, colParameter, sizeParameter, retIDParameter, categoryParameter, brandParameter);
+        }
+    
+        public virtual int InsertProduct_Details(Nullable<int> id, string name, Nullable<int> quan, Nullable<double> price, string prodDescription, string brand, string size, string col, string pic, Nullable<int> retID, string category)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            var quanParameter = quan.HasValue ?
+                new ObjectParameter("quan", quan) :
+                new ObjectParameter("quan", typeof(int));
+    
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("price", price) :
+                new ObjectParameter("price", typeof(double));
+    
+            var prodDescriptionParameter = prodDescription != null ?
+                new ObjectParameter("prodDescription", prodDescription) :
+                new ObjectParameter("prodDescription", typeof(string));
+    
+            var brandParameter = brand != null ?
+                new ObjectParameter("brand", brand) :
+                new ObjectParameter("brand", typeof(string));
+    
+            var sizeParameter = size != null ?
+                new ObjectParameter("size", size) :
+                new ObjectParameter("size", typeof(string));
+    
+            var colParameter = col != null ?
+                new ObjectParameter("col", col) :
+                new ObjectParameter("col", typeof(string));
+    
+            var picParameter = pic != null ?
+                new ObjectParameter("pic", pic) :
+                new ObjectParameter("pic", typeof(string));
+    
+            var retIDParameter = retID.HasValue ?
+                new ObjectParameter("retID", retID) :
+                new ObjectParameter("retID", typeof(int));
+    
+            var categoryParameter = category != null ?
+                new ObjectParameter("category", category) :
+                new ObjectParameter("category", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertProduct_Details", idParameter, nameParameter, quanParameter, priceParameter, prodDescriptionParameter, brandParameter, sizeParameter, colParameter, picParameter, retIDParameter, categoryParameter);
         }
     
         public virtual int InsertProductDetails(Nullable<int> id, string name, Nullable<int> quan, Nullable<double> price, string prodDescription, string brand, string size, string col, string pic)
@@ -96,6 +208,23 @@ namespace OnlineShopping.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertProductDetails", idParameter, nameParameter, quanParameter, priceParameter, prodDescriptionParameter, brandParameter, sizeParameter, colParameter, picParameter);
         }
     
+        public virtual int InsertRetailer(string name, string email, string num)
+        {
+            var nameParameter = name != null ?
+                new ObjectParameter("name", name) :
+                new ObjectParameter("name", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            var numParameter = num != null ?
+                new ObjectParameter("num", num) :
+                new ObjectParameter("num", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertRetailer", nameParameter, emailParameter, numParameter);
+        }
+    
         public virtual ObjectResult<string> LoginAdmin(string pass)
         {
             var passParameter = pass != null ?
@@ -114,13 +243,22 @@ namespace OnlineShopping.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("LoginCustomer", passParameter);
         }
     
-        public virtual ObjectResult<string> LoginRetailer(string pass)
+        public virtual int LoginRetailer(string pass)
         {
             var passParameter = pass != null ?
                 new ObjectParameter("pass", pass) :
                 new ObjectParameter("pass", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("LoginRetailer", passParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("LoginRetailer", passParameter);
+        }
+    
+        public virtual ObjectResult<ProductByid_Result> ProductByid(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ProductByid_Result>("ProductByid", idParameter);
         }
     
         public virtual ObjectResult<ProductView_Result> ProductView(Nullable<int> id)
@@ -130,6 +268,29 @@ namespace OnlineShopping.Models
                 new ObjectParameter("id", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ProductView_Result>("ProductView", idParameter);
+        }
+    
+        public virtual ObjectResult<RetailerView_Result> RetailerView()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RetailerView_Result>("RetailerView");
+        }
+    
+        public virtual ObjectResult<SearchProduct_Result> SearchProduct(string prodDescription)
+        {
+            var prodDescriptionParameter = prodDescription != null ?
+                new ObjectParameter("prodDescription", prodDescription) :
+                new ObjectParameter("prodDescription", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SearchProduct_Result>("SearchProduct", prodDescriptionParameter);
+        }
+    
+        public virtual ObjectResult<SearchProductName_Result> SearchProductName(string prodDescription)
+        {
+            var prodDescriptionParameter = prodDescription != null ?
+                new ObjectParameter("prodDescription", prodDescription) :
+                new ObjectParameter("prodDescription", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SearchProductName_Result>("SearchProductName", prodDescriptionParameter);
         }
     
         public virtual int UpdateAdminPassword(string pass, string name)
@@ -238,20 +399,20 @@ namespace OnlineShopping.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViewProductDetails_Result>("ViewProductDetails");
         }
     
-        public virtual ObjectResult<ProductByid_Result> ProductByid(Nullable<int> id)
+        public virtual int DeleteProductDetails1(string id)
         {
-            var idParameter = id.HasValue ?
+            var idParameter = id != null ?
                 new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
+                new ObjectParameter("id", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ProductByid_Result>("ProductByid", idParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteProductDetails1", idParameter);
         }
     
-        public virtual int InsertProduct_Details(Nullable<int> id, string name, Nullable<int> quan, Nullable<double> price, string prodDescription, string brand, string size, string col, string pic, Nullable<int> retID, string category)
+        public virtual int InsertProductDetails1(string id, string name, Nullable<int> quan, Nullable<double> price, string prodDescription, string brand, string size, string col, string pic)
         {
-            var idParameter = id.HasValue ?
+            var idParameter = id != null ?
                 new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
+                new ObjectParameter("id", typeof(string));
     
             var nameParameter = name != null ?
                 new ObjectParameter("name", name) :
@@ -285,46 +446,53 @@ namespace OnlineShopping.Models
                 new ObjectParameter("pic", pic) :
                 new ObjectParameter("pic", typeof(string));
     
-            var retIDParameter = retID.HasValue ?
-                new ObjectParameter("retID", retID) :
-                new ObjectParameter("retID", typeof(int));
-    
-            var categoryParameter = category != null ?
-                new ObjectParameter("category", category) :
-                new ObjectParameter("category", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertProduct_Details", idParameter, nameParameter, quanParameter, priceParameter, prodDescriptionParameter, brandParameter, sizeParameter, colParameter, picParameter, retIDParameter, categoryParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertProductDetails1", idParameter, nameParameter, quanParameter, priceParameter, prodDescriptionParameter, brandParameter, sizeParameter, colParameter, picParameter);
         }
     
-        public virtual int DeleteRetailer(Nullable<int> id)
+        public virtual int UpdateProductDetails1(string id, string name, Nullable<int> quan, Nullable<double> price, string prodDescription, string brand, string size, string col, string pic)
         {
-            var idParameter = id.HasValue ?
+            var idParameter = id != null ?
                 new ObjectParameter("id", id) :
-                new ObjectParameter("id", typeof(int));
+                new ObjectParameter("id", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteRetailer", idParameter);
-        }
-    
-        public virtual int InsertRetailer(string name, string email, string num)
-        {
             var nameParameter = name != null ?
                 new ObjectParameter("name", name) :
                 new ObjectParameter("name", typeof(string));
     
-            var emailParameter = email != null ?
-                new ObjectParameter("email", email) :
-                new ObjectParameter("email", typeof(string));
+            var quanParameter = quan.HasValue ?
+                new ObjectParameter("quan", quan) :
+                new ObjectParameter("quan", typeof(int));
     
-            var numParameter = num != null ?
-                new ObjectParameter("num", num) :
-                new ObjectParameter("num", typeof(string));
+            var priceParameter = price.HasValue ?
+                new ObjectParameter("price", price) :
+                new ObjectParameter("price", typeof(double));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertRetailer", nameParameter, emailParameter, numParameter);
+            var prodDescriptionParameter = prodDescription != null ?
+                new ObjectParameter("prodDescription", prodDescription) :
+                new ObjectParameter("prodDescription", typeof(string));
+    
+            var brandParameter = brand != null ?
+                new ObjectParameter("brand", brand) :
+                new ObjectParameter("brand", typeof(string));
+    
+            var sizeParameter = size != null ?
+                new ObjectParameter("size", size) :
+                new ObjectParameter("size", typeof(string));
+    
+            var colParameter = col != null ?
+                new ObjectParameter("col", col) :
+                new ObjectParameter("col", typeof(string));
+    
+            var picParameter = pic != null ?
+                new ObjectParameter("pic", pic) :
+                new ObjectParameter("pic", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateProductDetails1", idParameter, nameParameter, quanParameter, priceParameter, prodDescriptionParameter, brandParameter, sizeParameter, colParameter, picParameter);
         }
     
-        public virtual ObjectResult<RetailerView_Result> RetailerView()
+        public virtual ObjectResult<ViewProductDetails1_Result> ViewProductDetails1()
         {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<RetailerView_Result>("RetailerView");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViewProductDetails1_Result>("ViewProductDetails1");
         }
     }
 }

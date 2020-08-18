@@ -10,7 +10,6 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using OnlineShopping.Models;
 using System.Web.Http.Cors;
-
 namespace OnlineShopping.Controllers
 {
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
@@ -19,19 +18,14 @@ namespace OnlineShopping.Controllers
         private Online_ShoppingEntities db = new Online_ShoppingEntities();
 
         // GET: api/ProductDetails
-        public IHttpActionResult GetProductDetails()
+        public IQueryable<ProductDetail> GetProductDetails()
         {
-            List<ViewProductDetails_Result> viewProductDetails = new List<ViewProductDetails_Result>();
-            foreach (var item in db.ViewProductDetails())
-            {
-                viewProductDetails.Add(item);
-            }
-            return Ok(viewProductDetails);
+            return db.ProductDetails;
         }
 
         // GET: api/ProductDetails/5
         [ResponseType(typeof(ProductDetail))]
-        public IHttpActionResult GetProductDetail(int id)
+        public IHttpActionResult GetProductDetail(string id)
         {
             ProductDetail productDetail = db.ProductDetails.Find(id);
             if (productDetail == null)
@@ -44,7 +38,7 @@ namespace OnlineShopping.Controllers
 
         // PUT: api/ProductDetails/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutProductDetail(int id, ProductDetail productDetail)
+        public IHttpActionResult PutProductDetail(string id, ProductDetail productDetail)
         {
             if (!ModelState.IsValid)
             {
@@ -81,24 +75,35 @@ namespace OnlineShopping.Controllers
         [ResponseType(typeof(ProductDetail))]
         public IHttpActionResult PostProductDetail(ProductDetail productDetail)
         {
-
-            db.InsertProductDetails(productDetail.Product_Id, productDetail.Product_Name, productDetail.Quantity, productDetail.Unit_Price,
-                productDetail.Product_Description, productDetail.BrandName, productDetail.Size, productDetail.Color, productDetail.Pictures);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            //db.ProductDetails.Add(productDetail);
-            db.SaveChanges();
+            db.ProductDetails.Add(productDetail);
 
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbUpdateException)
+            {
+                if (ProductDetailExists(productDetail.Product_Id))
+                {
+                    return Conflict();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
             return CreatedAtRoute("DefaultApi", new { id = productDetail.Product_Id }, productDetail);
         }
 
         // DELETE: api/ProductDetails/5
         [ResponseType(typeof(ProductDetail))]
-        public IHttpActionResult DeleteProductDetail(int id)
+        public IHttpActionResult DeleteProductDetail(string id)
         {
             ProductDetail productDetail = db.ProductDetails.Find(id);
             if (productDetail == null)
@@ -121,7 +126,7 @@ namespace OnlineShopping.Controllers
             base.Dispose(disposing);
         }
 
-        private bool ProductDetailExists(int id)
+        private bool ProductDetailExists(string id)
         {
             return db.ProductDetails.Count(e => e.Product_Id == id) > 0;
         }

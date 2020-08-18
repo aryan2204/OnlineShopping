@@ -11,7 +11,9 @@ namespace OnlineShopping.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Runtime.Serialization;
+
+    [DataContract]
     public partial class Retailer
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,12 +21,13 @@ namespace OnlineShopping.Models
         {
             this.ProductDetails = new HashSet<ProductDetail>();
         }
-    
+        [DataMember]
         public int Retailer_Id { get; set; }
+        [DataMember]
         public string Retailer_Name { get; set; }
+        [DataMember]
         public string Retailer_EMail { get; set; }
-        public string Retailer_Username { get; set; }
-        public string Password { get; set; }
+        [DataMember]
         public string MobileNum { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

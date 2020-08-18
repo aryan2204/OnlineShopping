@@ -13,6 +13,7 @@ using System.Web.Http.Cors;
 namespace OnlineShopping.Controllers
 {
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
+
     public class RetailersController : ApiController
     {
         private Online_ShoppingEntities db = new Online_ShoppingEntities();
@@ -80,12 +81,12 @@ namespace OnlineShopping.Controllers
         [ResponseType(typeof(Retailer))]
         public IHttpActionResult PostRetailer(Retailer retailer)
         {
-            db.InsertRetailer(retailer.Retailer_Name, retailer.Retailer_EMail, retailer.MobileNum);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
+            db.Retailers.Add(retailer);
             db.SaveChanges();
 
             return CreatedAtRoute("DefaultApi", new { id = retailer.Retailer_Id }, retailer);

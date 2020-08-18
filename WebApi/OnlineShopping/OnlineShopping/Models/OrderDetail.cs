@@ -16,14 +16,13 @@ namespace OnlineShopping.Models
     {
         public int OrderDetail_Id { get; set; }
         public string Order_Id { get; set; }
-        public Nullable<int> Product_Id { get; set; }
+        public string Product_Id { get; set; }
         public int Quantity { get; set; }
         public System.DateTime Order_Date { get; set; }
         public string Order_Status { get; set; }
         public string Ship_To { get; set; }
         public double Total_Amount { get; set; }
     
-        public virtual Order Order { get; set; }
         public virtual ProductDetail ProductDetail { get; set; }
     }
 }

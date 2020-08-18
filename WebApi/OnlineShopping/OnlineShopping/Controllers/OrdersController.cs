@@ -10,7 +10,6 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using OnlineShopping.Models;
 using System.Web.Http.Cors;
-
 namespace OnlineShopping.Controllers
 {
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]

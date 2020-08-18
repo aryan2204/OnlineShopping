@@ -15,9 +15,8 @@ namespace OnlineShopping.Models
     public partial class Wishlist
     {
         public int Id { get; set; }
-        public Nullable<int> Product_Id { get; set; }
+        public string Product_Id { get; set; }
         public Nullable<int> Customer_Id { get; set; }
-        public string Name { get; set; }
         public Nullable<int> Qunatity { get; set; }
         public string Description { get; set; }
     

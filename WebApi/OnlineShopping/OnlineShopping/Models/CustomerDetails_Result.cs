@@ -11,15 +11,13 @@ namespace OnlineShopping.Models
 {
     using System;
     
-    public partial class ProductByid_Result
+    public partial class CustomerDetails_Result
     {
-        public string Product_Id { get; set; }
-        public string Product_Name { get; set; }
-        public double Unit_Price { get; set; }
-        public string Product_Description { get; set; }
-        public string BrandName { get; set; }
-        public string Color { get; set; }
-        public string Size { get; set; }
-        public string Pictures { get; set; }
+        public string Customer_FirstName { get; set; }
+        public string Customer_LastName { get; set; }
+        public string Customer_EMail { get; set; }
+        public string Customer_Mobile_Number { get; set; }
+        public string Password { get; set; }
+        public string Customer_Address { get; set; }
     }
 }
