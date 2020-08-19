@@ -1,0 +1,34 @@
+<table>
+<tr>
+  <td>
+    <input type="text" name="txtPass" placeholder="Enter mail" class="form-control" [(ngModel)]="login.Customer_EMail" />
+</td>
+</tr>
+<tr>
+    <td>
+        <input type="password" name="txtPass" placeholder="Enter Password" class="form-control" [(ngModel)]="login.Password" />
+    </td>
+</tr>
+<tr>
+    <td>
+        <button (click)="userLogin()" class="btn btn-primary">Login</button>  
+        
+    </td>
+</tr>
+<tr>
+    <td>
+        <input type="checkbox" value="Remember me" checked/> Remember me
+    </td>
+</tr>
+<tr>
+    <td>
+       
+        <label>Forgot</label> <a class="nav-link" routerLink="/forgotpassword"><u>password?</u></a>
+    </td>
+</tr>
+</table>
+<br/>
+<p>
+
+<label>Not having Account ? </label> <a class="nav-link" routerLink="/register"><u>Register here</u></a>
+</p>

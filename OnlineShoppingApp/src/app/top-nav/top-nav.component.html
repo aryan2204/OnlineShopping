@@ -1,0 +1,58 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  
+  <a href="/">
+    <img alt="Flacon Delivery" src="../../assets/falcon.png" height="75" width="75">
+</a>
+<form class="form-inline" method="get" action="/search">
+                <input type="text" name="query" class="form-control" placeholder="Search for product" id="Query" value=""><button class="search-btn"><i class="fa fa-search"></i>Search</button>
+</form>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" style="padding-left: 150px;" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+  
+        <li class="nav-item active" *ngIf="!isLoggedIn">
+          <a class="nav-link navbar-text"  (click)="open(content)" href="#"><b>Login & Signup</b></a>
+        </li>
+        <div class="btn-group mr-3" *ngIf="isLoggedIn">
+          <button type="button" class="btn btn-primary"><b>User Details</b></button>
+          <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+            <button class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle></button>
+            <div class="dropdown-menu" ngbDropdownMenu>
+              <button routerLink='/profile' class="dropdown-item">Profile</button>
+              <button  routerLink='/dashboard' class="dropdown-item">My Dashboard</button>
+              <button class="dropdown-item" (click)="LogOut()">LogOut</button>
+            </div>
+          </div>
+        </div>
+       
+        <li class="nav-item active">
+            <a class="nav-link" href="cart"><i class="fa fa-shopping-cart"></i><b>Cart</b></a>          
+        </li>
+        <li>
+          <a class="nav-link" href="wishlist"><i class="fa fa-heart-o"></i>Wishlist</a>
+        </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="admin"><i class="fa fa-user-circle"></i><b>Admin</b></a>
+          </li>
+      </ul>
+  
+    </div>
+  </nav>
+  <ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header" style="background: deepskyblue; font-size: xx-large;">
+      <h4 class="modal-title"  id="modal-basic-title">LogIn & Registration</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  
+   
+    </ng-template>
+     <div> <pre>{{closeResult}}</pre></div>
+  
+  
+ 
