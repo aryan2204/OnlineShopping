@@ -1,0 +1,100 @@
+<div class="container-fluid">
+    <div class="row content">
+      <div class="col-sm-3 sidenav">
+        <h4>DashBoard</h4>
+          <ul class="nav nav-pills nav-stacked">
+            <button class="btn btn-success" (click) = "show()">Add Product</button>
+          </ul><br>
+      </div>
+  
+      <div class="col-sm-9"> 
+  
+        
+        <div [style.display]="showModal ? 'block' : 'none'" class="modal" id="imagemodal" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-body">
+              <form [formGroup]="myForm">
+                <div class="form-group">
+  
+                  <input type="text" formControlName="ProdId" class="form-control" placeholder="Product ID"/>
+                  <p *ngIf = "ProdId.touched && ProdId.invalid">
+                    <span *ngIf = "ProdId.errors.required">Product Id is a must!</span>
+                  </p>
+                </div>
+                <div class="form-group">
+                  <input type="text" formControlName="PName" class="form-control" placeholder="Product Name"/>
+                  <p *ngIf = "PName.touched && PName.invalid">
+                    <span *ngIf = "PName.errors.required">Product name cannot be empty!</span>
+                  </p>
+                </div>
+                <div class="form-group">
+                  <input type="text" formControlName="Quan" class="form-control" placeholder="Quantity"/>
+                  <p *ngIf = "Quan.touched && Quan.invalid">
+                    <span *ngIf = "Quan.errors.required">Please enter the quantity of the product!</span>
+                  </p>
+                </div>
+                <div class="form-group">
+                  <input type="text" formControlName="Price" class="form-control" placeholder="Unit Price"/>
+                  <p *ngIf = "Price.touched && Price.invalid">
+                    <span *ngIf = "Price.errors.required">Please enter the price of the product!</span>
+                  </p>
+                </div>
+                <div class="form-group">
+                  <input type="text" formControlName="Desc" class="form-control" placeholder="Product Description"/>
+                  <p *ngIf = "Desc.touched && Desc.invalid">
+                    <span *ngIf = "Desc.errors.required">Please enter the product description!</span>
+                  </p>
+                </div>
+                <div class="form-group">
+                  <input type="text" formControlName="Pic" class="form-control" placeholder="Picture URL"/>
+                  <p *ngIf = "Pic.touched && Pic.invalid">
+                    <span *ngIf = "Pic.errors.required">Please enter the picture URL!</span>
+                  </p>
+                </div>
+                <div class="form-group">
+                  <input type="text" formControlName="Col" class="form-control" placeholder="Color"/>
+                  <p *ngIf = "Col.touched && Col.invalid">
+                    <span>No Color given..</span>
+                  </p>
+                </div>
+                <div class="form-group">
+                  <input type="text" formControlName="Size" class="form-control" placeholder="Size"/>
+                  <p *ngIf = "Size.touched && Size.invalid">
+                    <span >Default size taken..</span>
+                  </p>
+                </div>
+                <div class="form-group">
+                  <input type="text" formControlName="Retailer" class="form-control" placeholder="Retailer Id" />
+                  <p *ngIf = "Retailer.touched && Retailer.invalid">
+                    <span *ngIf = "Retailer.errors.required">Please enter the Retailer ID!</span>
+                  </p>
+                </div>
+                <div class="form-group">
+                  <input type="text" formControlName="Category" class="form-control" placeholder="Category Id"/>
+                  <p *ngIf = "Category.touched && Category.invalid">
+                    <span *ngIf = "Category.errors.required">Please enter the Category ID!</span>
+                  </p>
+                </div>
+                <div class="form-group">
+                  <input type="text" formControlName="Brand" class="form-control" placeholder="Brand Name"/>
+                  <p *ngIf = "Brand.touched && Brand.invalid">
+                    <span *ngIf = "Brand.errors.required">Please enter the BrandName!</span>
+                  </p>
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="myForm.invalid"
+                  (click)="onSubmit()">Submit</button><button type="reset" class="btn btn-danger"
+                  (click)="hide()">Cancel</button>
+              </form>
+  
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  
+  
+      </div>
+    </div>
+  

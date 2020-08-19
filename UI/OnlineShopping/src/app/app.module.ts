@@ -40,6 +40,11 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { PaymentComponent } from './payment/payment.component';
 import { LoginService } from './services/login.service';
+import { RetailerdashboardComponent } from './retailerdashboard/retailerdashboard.component';
+import { RetailerdashboardService } from './services/retailerproduct.service';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { RetailerloginComponent } from './retailerlogin/retailerlogin.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -64,7 +69,10 @@ import { LoginService } from './services/login.service';
     SearchComponent,
     UserLoginComponent,
     RegistrationComponent,
-    PaymentComponent
+    PaymentComponent,
+    RetailerdashboardComponent,
+    AdminloginComponent,
+    RetailerloginComponent
     
   ],
   imports: [
@@ -78,7 +86,7 @@ import { LoginService } from './services/login.service';
     NgbModule
   ],
   providers: [HomeService,OrderService,CartService,ProductService,RetailerService,RegistrationService
-    ,AuthenticationService,SharedService,WishlistDataService,LoginService],
+    ,AuthenticationService,SharedService,WishlistDataService,LoginService,RetailerdashboardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

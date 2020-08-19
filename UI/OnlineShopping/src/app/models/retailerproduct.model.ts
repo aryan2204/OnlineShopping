@@ -1,4 +1,4 @@
-export class Product
+export class RetProduct
 {
    Product_Id :string;
    Product_Name:string;

@@ -81,6 +81,8 @@ export class CartService {
     subTotal = p.product.Unit_Price * p.numInCart;
 
     return subTotal;
+  }AddProductWishList(Product_Id: Number){
+    
   }
 
   AddProductToCart(Product_Id: Number, quantity?: number) {

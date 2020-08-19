@@ -18,9 +18,10 @@ export class SharedService
     public policyIdForRenew;
     public policyId;
     public renewProfileData;
+
     public adminEmail;
     public CustomerId;
-    
+    public RetailerId;
 
     public getCustomerId(){
         return this.CustomerId;
@@ -28,16 +29,21 @@ export class SharedService
     public setCustomerId(Id){
         this.CustomerId=Id;
     }
-
     public setadminEmail(email)
     {
             this.adminEmail=email;
     }
-
     public getadminEmail()
     {
-            return this.adminEmail;
+        return this.adminEmail;
     }
+    public getRetailerId(){
+        return this.RetailerId;
+    }
+    public setRetailerId(email){
+        this.RetailerId=email;
+    }
+
 
     public setrenewProfileData(renewdata)
     {

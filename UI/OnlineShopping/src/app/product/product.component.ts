@@ -1,9 +1,10 @@
 import { ViewChild,Component, OnInit } from '@angular/core';
 import {map} from "rxjs/operators";
 import {ActivatedRoute, ParamMap} from "@angular/router";
-import {HomeModel} from '../models/Home.model';
+import { Router } from '@angular/router';
 import {HomeService} from '../services/home.service';
 import {CartService} from '../services/cart.service';
+import { SharedService } from '../services/shared.service';
 
 declare let $: any;
 
@@ -14,20 +15,23 @@ declare let $: any;
 })
 export class ProductComponent implements OnInit {
   id: Number;
+  Customerid;
   product;
   Pictures: any;
-
+  public service;
 
   @ViewChild('quantity') quantityInput;
 
-  constructor(private route: ActivatedRoute,
+  constructor(private route: ActivatedRoute,private routes:Router,
               private productService: HomeService,
-              private cartService: CartService) {
-
+              private cartService: CartService,private sharedService:SharedService) 
+  {
+    this.service= sharedService;
 
   }
 
   ngOnInit(): void {
+    this.Customerid=this.sharedService.getCustomerId();
     this.route.paramMap.pipe(
       map((param: ParamMap) => {
         // @ts-ignore
@@ -44,10 +48,27 @@ export class ProductComponent implements OnInit {
   }
 
 addToCart(id: Number) {
-  
-  this.cartService.AddProductToCart(id, this.quantityInput.nativeElement.value);
-  window.confirm('product added');
+  if(this.Customerid==null)
+    {
+      this.routes.navigate(["/userlogin"]);
+    }
+    else{
+          this.cartService.AddProductToCart(id, this.quantityInput.nativeElement.value);
+          window.confirm('product added');
 }
+}
+addToWishList(id: Number) {
+  if(this.Customerid==null)
+    {
+      this.routes.navigate(["/userlogin"]);
+    }
+    else{
+          this.cartService.AddProductWishList(id);
+          window.confirm('product added to wishlist');
+}
+}
+
+
 Increase() {
   let value = parseInt(this.quantityInput.nativeElement.value);
   if (this.product.Quantity >= 1){

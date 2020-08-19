@@ -36,15 +36,13 @@
                 <button><span (click)="Decrease()" class="qty-down">-</span></button>
               </div>
             </div>
-            <button (click)="addToCart(product?.Product_Id)" *ngIf="product?.Quantity >= 1" class="add-to-cart-btn"><i
+            <button (click)="addToCart(product.Product_Id,product.Category_Id)" *ngIf="product?.Quantity >= 1" class="add-to-cart-btn"><i
               class="fa fa-shopping-cart"></i>Add To Cart
             </button>
           </div>
 
           <div class="product-btns">
-            <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span>
-            </button>
-            <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span>
+            <button class="add-to-wishlist" (click)="addToWishList(product.Product_Id)" *ngIf="product?.Quantity >= 1"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span>
             </button>
           </div>
        

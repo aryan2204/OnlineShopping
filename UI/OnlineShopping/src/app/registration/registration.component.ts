@@ -86,7 +86,7 @@ export class RegistrationComponent implements OnInit {
              console.log("After Get User ")
              this.service.setuserData(this.result);
              
-             this.routes.navigate(["/userlogin"]);
+             this.routes.navigate(["userlogin"]);
            }
 
            if(this.result==null)

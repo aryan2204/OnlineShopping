@@ -97,6 +97,7 @@ export class ProductViewComponent implements OnInit {
       this.showModal = true; // Show-Hide Modal Check
       
     }
+   
     hide()
     {
       this.myForm.reset();
@@ -144,25 +145,28 @@ export class ProductViewComponent implements OnInit {
         this.hide();
       }
     }
-  Edit(prodId:string)
-  {
-  this.prodService.getProdById(prodId).subscribe(prod=>
+    showupdate(prodId:string)
     {
-      this.message=null;
-      this.datasaved = false;
-      this.productIdtoUpdate=prod.Product_Id;
-      this.myForm.controls['Product_Id'].setValue(prod.Product_Id);
-      this.myForm.controls['Product_Name'].setValue(prod.Product_Name);
-      this.myForm.controls['Quantity'].setValue(prod.Quantity);
-      this.myForm.controls['Product_Description'].setValue(prod.Product_Description);
-      this.myForm.controls['Pictures'].setValue(prod.Pictures);
-      this.myForm.controls['Color'].setValue(prod.Color);
-      this.myForm.controls['Size'].setValue(prod.Size);
-      this.myForm.controls['Category_Id'].setValue(prod.Category_Id);
-      this.myForm.controls['Retailer_Id'].setValue(prod.Retailer_Id);
-      this.myForm.controls['BrandName'].setValue(prod.BrandName);
-    });
-  }
+    this.showModal = true;
+    this.prodService.getProdById(prodId).subscribe(prod=>
+      {
+        
+        this.message=null;
+        this.datasaved = false;
+        this.productIdtoUpdate=prod.Product_Id;
+        this.myForm.controls['ProdId'].setValue(prod.Product_Id);
+        this.myForm.controls['PName'].setValue(prod.Product_Name);
+        this.myForm.controls['Quan'].setValue(prod.Quantity);
+        this.myForm.controls['Desc'].setValue(prod.Product_Description);
+        this.myForm.controls['Pic'].setValue(prod.Pictures);
+        this.myForm.controls['Col'].setValue(prod.Color);
+        this.myForm.controls['Size'].setValue(prod.Size);
+        this.myForm.controls['Category'].setValue(prod.Category_Id);
+        this.myForm.controls['Retailer'].setValue(prod.Retailer_Id);
+        this.myForm.controls['Brand'].setValue(prod.BrandName);
+      });
+      
+    }
   Delete(prodId:string)
   {
   this.prodService.delProduct(prodId).subscribe(()=>

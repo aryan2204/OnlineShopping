@@ -4,7 +4,7 @@ import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
 import { Retailer } from '../models/retailer.model';
 
 @Component({
-  selector: 'app-retailer-view',
+  selector: 'app-retailerview',
   templateUrl: './retailer-view.component.html',
   styleUrls: ['./retailer-view.component.css']
 })
@@ -14,6 +14,9 @@ showToggle:Boolean;
 showModal: Boolean;
 myForm:FormGroup;
 retailer:Retailer;
+message = null;
+datasaved = false;
+retailerIdtoUpdate:null;
 id:number;
 
   constructor(private retService:RetailerService,private fb: FormBuilder) { 
@@ -60,20 +63,28 @@ show()
     this.retailer.MobileNum=this.RetNum.value;
     if(this.myForm.valid)
     {
-      this.retService.postRetailer(this.retailer).subscribe((data)=>
-      {
-        this.retailers = data as [];
-        //console.log(data);
-      })
+      this.retService.postRetailer(this.retailer).subscribe(()=>
+        {
+          //console.log(data);
+          //this.products = data;
+          this.datasaved = true;
+          this.message = "Data Inserted";
+          this.retService.getRetailer();
+          this.retailerIdtoUpdate = null;
+          this.myForm.reset();
+        });
       this.hide();
     }
   }
-  delete()
+  Delete(retId:string)
   {
-    this.retService.deleteRetailer(this.id).subscribe((data)=>
-    {
-      this.retailers = data;
-    })
+    this.retService.deleteRetailer(retId).subscribe(()=>
+{
+  this.message = "Deleted";
+  this.retService.getRetailer();
+  this.retailerIdtoUpdate = null;
+  this.myForm.reset();
+})
   }
   onClose(){
     this.myForm.reset();

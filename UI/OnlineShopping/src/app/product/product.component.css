@@ -1,0 +1,82 @@
+.input-number {
+    position: relative;
+  }
+  
+  .input-number input[type="number"]::-webkit-inner-spin-button, .input-number input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .input-number input[type="number"] {
+    -moz-appearance: textfield;
+    height: 40px;
+    width: 100%;
+    border: 1px solid #E4E7ED;
+    background-color: #FFF;
+    padding: 0px 35px 0px 15px;
+  }
+  
+  .input-number .qty-up, .input-number .qty-down {
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #E4E7ED;
+    background-color: #FFF;
+    text-align: center;
+    font-weight: 700;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  .input-number .qty-up {
+    right: 0;
+    top: 0;
+    border-bottom: 0px;
+  }
+  
+  .input-number .qty-down {
+    right: 0;
+    bottom: 0;
+  }
+  
+  .input-number .qty-up:hover, .input-number .qty-down:hover {
+    background-color: #E4E7ED;
+    color: #D10024;
+  }
+
+  .input {
+  height: 40px;
+  padding: 0px 15px;
+  border: 1px solid #E4E7ED;
+  background-color: #FFF;
+  width: 100%;
+}
+
+textarea.input {
+  padding: 15px;
+  min-height: 90px;
+}
+
+.primary-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background-color: #D10024;
+  border: none;
+  border-radius: 40px;
+  color: #FFF;
+  text-transform: uppercase;
+  font-weight: 700;
+  text-align: center;
+  -webkit-transition: 0.2s all;
+  transition: 0.2s all;
+}
+
+.primary-btn:hover, .primary-btn:focus {
+  opacity: 0.9;
+  color: #FFF;
+}
+

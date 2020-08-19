@@ -12,21 +12,20 @@
     </button>
   
     <div class="collapse navbar-collapse" style="padding-left: 150px;" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-  
-        <li class="nav-item active" *ngIf="!isLoggedIn">
-          <a class="nav-link navbar-text"  (click)="open(content)" href="#"><b>Login & Signup</b></a>
+      <ul class="nav navbar-nav navbar-right">
+        <div *ngIf="showProfile === false" style="text-align:center;">
+        <li>
+          <a class="nav-link navbar-text" routerLink="/registration"><b>Signup</b></a>
         </li>
-        <div class="btn-group mr-3" *ngIf="isLoggedIn">
-          <button type="button" class="btn btn-primary"><b>User Details</b></button>
-          <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-            <button class="btn btn-primary dropdown-toggle-split" ngbDropdownToggle></button>
-            <div class="dropdown-menu" ngbDropdownMenu>
-              <button routerLink='/profile' class="dropdown-item">Profile</button>
-              <button  routerLink='/dashboard' class="dropdown-item">My Dashboard</button>
-              <button class="dropdown-item" (click)="LogOut()">LogOut</button>
-            </div>
-          </div>
+        <li>
+          <a class="nav-link" routerLink="/userlogin"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+        </li>
+      </div>
+    
+        <div class="btn-group mr-3" *ngIf="showProfile">
+
+          <button type="button" class="btn btn-primary" (click)="myProfile()"><b>User Details</b></button>
+          
         </div>
        
         <li class="nav-item active">

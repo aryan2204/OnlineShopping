@@ -18,12 +18,12 @@ export class ThankyouComponent implements OnInit {
     const state = navigation.extras.state as {
       message: String,
       products: ProductResponseModel[],
-      OrderNumber: Number,
+      Order_Id: Number,
       total: Number
     };
 
     //this.message = state.message;
-    this.orderId = state.OrderNumber;
+    this.orderId = state.Order_Id;
     this.products = state.products;
     this.cartTotal = state.total;
     console.log(this.products);

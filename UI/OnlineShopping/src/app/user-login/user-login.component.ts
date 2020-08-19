@@ -46,9 +46,9 @@ export class UserLoginComponent implements OnInit {
       
       // if(this.mylogin.valid)
       // {
-      // }
-        // this.login.Customer_EMail=this.Email.value;
-        // this.login.Password=this.Password.value;
+      
+      //  this.login.Customer_EMail=this.Email.value;
+      //  this.login.Password=this.Password.value;
        this.loginService.loginUser(this.login).subscribe((data)=>
       {
           this.result=data;
@@ -62,17 +62,13 @@ export class UserLoginComponent implements OnInit {
             
           }
        })
-      
+      }
 
-       if(this.result==null)
-       {
-        this.showError=true;
-       }
-    }
+    
   ngOnInit(): void {
 
     this.userDetails=this.service.getuserData();
-    // console.log(this.userDetails);
+    console.log(this.userDetails);
       this.login.Customer_EMail=this.userDetails.Email;
       this.login.Password=this.userDetails.Password;
       

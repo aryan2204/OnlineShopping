@@ -1,0 +1,29 @@
+<form [formGroup]="adminlogin">
+  <div class="form-group">
+      <div class="container">
+        <label>Email</label>
+        <input type="text" class="form-control" formControlName="em">
+       <p class="alert alert-danger" *ngIf="em.touched && em.invalid">
+           <span class="alert alert-danger" *ngIf="em.errors.required">Email cannot be empty</span>
+           <span class="alert alert-danger" *ngIf="em.errors.pattern">Email should be valid</span>
+       </p>
+       <label>Password</label>
+       <input type="password" class="form-control" formControlName="password" />
+       <p class="alert alert-danger" *ngIf="pd.touched && pd.invalid">
+           <span class="alert alert-danger" *ngIf="pd.errors.required">Password cannot be empty</span>  
+           <span *ngIf="pd.errors.required">Minimum 8 chars!</span>  
+      </p>
+         
+          
+          <button type="submit" (click)="adminLogin()">Login</button>
+          <label>
+              <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+
+         <div class="container" style="background-color:#f1f1f1">
+          <button type="button" class="cancelbtn">Cancel</button>
+         
+          </div>
+      </div>
+  </div>
+</form>

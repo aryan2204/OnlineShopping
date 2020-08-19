@@ -15,6 +15,9 @@ import { AddressComponent } from './address/address.component';
 import {OderHistoryComponent} from './oder-history/oder-history.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { RetailerdashboardComponent } from './retailerdashboard/retailerdashboard.component';
+import { AdminloginComponent } from './adminlogin/adminlogin.component';
+import { RetailerloginComponent } from './retailerlogin/retailerlogin.component';
 
 
 const routes: Routes = [
@@ -40,7 +43,10 @@ const routes: Routes = [
     path: "retailerdetails", component:RetailerviewComponent
   },
   {
-    path: "admin",component: AdminComponent
+    path: "admin",component: AdminloginComponent
+  },
+  {
+    path:"admin/dashboard",component: AdminComponent
   },
   {
     path: "wishlist",component: WishlistComponent
@@ -62,7 +68,14 @@ const routes: Routes = [
   },
   {
     path: "registration",component: RegistrationComponent
+  },
+  {
+    path: "retalierlogin",component: RetailerloginComponent
+  },
+  {
+    path: "retailerdashboard", component: RetailerdashboardComponent
   }
+
   
 
 ];

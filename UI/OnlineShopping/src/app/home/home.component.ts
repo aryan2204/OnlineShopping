@@ -13,15 +13,15 @@ import { SharedService } from '../services/shared.service';
 export class HomeComponent implements OnInit {
   products; 
   public service;
-  Userid;
+  Customerid;
   constructor(private homeService:HomeService,private cartService:CartService,private router:Router,private sharedService:SharedService)
    { 
      this.service=sharedService
    }
 
   ngOnInit(): void {
-    this.Userid=this.service.getCustomerId();
-    console.log(this.Userid);
+    this.Customerid=this.service.getCustomerId();
+    console.log(this.Customerid);
     this.homeService.getAllProducts().subscribe((data) => {
      this.products = data; 
       //console.log(data);
