@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Online_ShoppingEntities4">
+    <EntitySetMapping Name="AdminInfoes">
+      <EntityTypeMapping TypeName="Model.AdminInfo">
+        <MappingFragment StoreEntitySet="AdminInfo">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+          <ScalarProperty Name="admin_email" ColumnName="admin_email" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="Model.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="Model.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Customer_FirstName" ColumnName="Customer_FirstName" />
+          <ScalarProperty Name="Customer_LastName" ColumnName="Customer_LastName" />
+          <ScalarProperty Name="Customer_EMail" ColumnName="Customer_EMail" />
+          <ScalarProperty Name="Customer_Mobile_Number" ColumnName="Customer_Mobile_Number" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Customer_Address" ColumnName="Customer_Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderDetails">
+      <EntityTypeMapping TypeName="Model.OrderDetail">
+        <MappingFragment StoreEntitySet="OrderDetails">
+          <ScalarProperty Name="OrderDetail_Id" ColumnName="OrderDetail_Id" />
+          <ScalarProperty Name="Order_Id" ColumnName="Order_Id" />
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Order_Date" ColumnName="Order_Date" />
+          <ScalarProperty Name="Order_Status" ColumnName="Order_Status" />
+          <ScalarProperty Name="Ship_To" ColumnName="Ship_To" />
+          <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="Model.Order">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="Order_Id" ColumnName="Order_Id" />
+          <ScalarProperty Name="Order_Status" ColumnName="Order_Status" />
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="OrderNumber" ColumnName="OrderNumber" />
+          <ScalarProperty Name="Order_Date" ColumnName="Order_Date" />
+          <ScalarProperty Name="Payment_Id" ColumnName="Payment_Id" />
+          <ScalarProperty Name="Unit_Price" ColumnName="Unit_Price" />
+          <ScalarProperty Name="Total_Amount" ColumnName="Total_Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Payments">
+      <EntityTypeMapping TypeName="Model.Payment">
+        <MappingFragment StoreEntitySet="Payment">
+          <ScalarProperty Name="Payment_Id" ColumnName="Payment_Id" />
+          <ScalarProperty Name="Payment_Type" ColumnName="Payment_Type" />
+          <ScalarProperty Name="Payment_Status" ColumnName="Payment_Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductDetails">
+      <EntityTypeMapping TypeName="Model.ProductDetail">
+        <MappingFragment StoreEntitySet="ProductDetails">
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Unit_Price" ColumnName="Unit_Price" />
+          <ScalarProperty Name="Product_Description" ColumnName="Product_Description" />
+          <ScalarProperty Name="Pictures" ColumnName="Pictures" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Retailer_Id" ColumnName="Retailer_Id" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Retailers">
+      <EntityTypeMapping TypeName="Model.Retailer">
+        <MappingFragment StoreEntitySet="Retailer">
+          <ScalarProperty Name="Retailer_Id" ColumnName="Retailer_Id" />
+          <ScalarProperty Name="Retailer_Name" ColumnName="Retailer_Name" />
+          <ScalarProperty Name="Retailer_EMail" ColumnName="Retailer_EMail" />
+          <ScalarProperty Name="MobileNum" ColumnName="MobileNum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wishlists">
+      <EntityTypeMapping TypeName="Model.Wishlist">
+        <MappingFragment StoreEntitySet="Wishlist">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Customer_Id" ColumnName="Customer_Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Qunatity" ColumnName="Qunatity" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="DeleteProductDetails" FunctionName="Model.Store.DeleteProductDetails" />
+    <FunctionImportMapping FunctionImportName="DeleteProductForRetailer" FunctionName="Model.Store.DeleteProductForRetailer" />
+    <FunctionImportMapping FunctionImportName="InsertProduct_Details" FunctionName="Model.Store.InsertProduct_Details" />
+    <FunctionImportMapping FunctionImportName="InsertProductDetails" FunctionName="Model.Store.InsertProductDetails" />
+    <FunctionImportMapping FunctionImportName="InsertRetailer" FunctionName="Model.Store.InsertRetailer" />
+    <FunctionImportMapping FunctionImportName="LoginAdmin" FunctionName="Model.Store.LoginAdmin" />
+    <FunctionImportMapping FunctionImportName="LoginCustomer" FunctionName="Model.Store.LoginCustomer" />
+    <FunctionImportMapping FunctionImportName="LoginCustomer1" FunctionName="Model.Store.LoginCustomer1" />
+    <FunctionImportMapping FunctionImportName="ProductView" FunctionName="Model.Store.ProductView">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.ProductView_Result">
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Unit_Price" ColumnName="Unit_Price" />
+          <ScalarProperty Name="Product_Description" ColumnName="Product_Description" />
+          <ScalarProperty Name="Pictures" ColumnName="Pictures" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Retailer_Id" ColumnName="Retailer_Id" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="RetailerView" FunctionName="Model.Store.RetailerView">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.RetailerView_Result">
+          <ScalarProperty Name="Retailer_Id" ColumnName="Retailer_Id" />
+          <ScalarProperty Name="Retailer_Name" ColumnName="Retailer_Name" />
+          <ScalarProperty Name="Retailer_EMail" ColumnName="Retailer_EMail" />
+          <ScalarProperty Name="MobileNum" ColumnName="MobileNum" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdateAdminPassword" FunctionName="Model.Store.UpdateAdminPassword" />
+    <FunctionImportMapping FunctionImportName="UpdateCustomerPassword" FunctionName="Model.Store.UpdateCustomerPassword" />
+    <FunctionImportMapping FunctionImportName="UpdateProductDetails" FunctionName="Model.Store.UpdateProductDetails" />
+    <FunctionImportMapping FunctionImportName="UpdateProductForRetailer" FunctionName="Model.Store.UpdateProductForRetailer" />
+    <FunctionImportMapping FunctionImportName="ViewProductDetails" FunctionName="Model.Store.ViewProductDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="Model.ViewProductDetails_Result">
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Unit_Price" ColumnName="Unit_Price" />
+          <ScalarProperty Name="Product_Description" ColumnName="Product_Description" />
+          <ScalarProperty Name="Pictures" ColumnName="Pictures" />
+          <ScalarProperty Name="Color" ColumnName="Color" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Retailer_Id" ColumnName="Retailer_Id" />
+          <ScalarProperty Name="Category_Id" ColumnName="Category_Id" />
+          <ScalarProperty Name="BrandName" ColumnName="BrandName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

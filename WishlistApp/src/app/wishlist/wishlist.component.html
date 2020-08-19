@@ -1,0 +1,37 @@
+<section class="wishlistapp">
+    <header class ="header">
+      <h1>WishList</h1>
+      </header>
+      <div class="row">
+        <div class="col my-4"></div>
+      </div>
+</section>
+<div class="row">
+    <div class="col my-4"></div>
+    <table class="table">
+        <thead class="table-dark">
+        <tr class="text-center">
+          <th>Product Name</th>
+          <th>Price</th>
+          <th>Description</th>
+          <th>Image</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let c of cartData.data; let i=index">
+              <td class="d-flex align-items-center justify-content-around" >
+                <img [src]="c.product.Pictures" alt="{{c.product.Product_Name}}" height="60" class="order-1">
+                <span class="text-danger" style="cursor: pointer;"><i class="fa fa-trash" (click)="cartService.removeWish(wishlist)"></i></span>
+              </td>
+              <td><p>{{c.product.Product_Name}}</p></td>
+              <td>
+                <p>{{c.product.Unit_Price | currency:'INR'}}</p>
+              </td>
+              <td>
+                <p>{{c.product.Product_Desciprtion}}</p>
+              </td>
+            </tr>  
+        </tbody>
+        </table>
+</div>
+
