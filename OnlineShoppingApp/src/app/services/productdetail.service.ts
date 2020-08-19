@@ -28,14 +28,14 @@ export class ProductService
         };
         return this.http.post<Product>(this.url,product,options);
     }
-    public putProduct(prod:Product):Observable<number>
+    public putProduct(prod:Product):Observable<Product>
     {
         let httpHeaders = new HttpHeaders()
         .set('Content-Type','application/json');
         let options = {
           headers:httpHeaders
         };
-        return this.http.put<number>(this.url+"/"+prod.Product_Id,prod,options);
+        return this.http.put<Product>(this.url+"/"+prod.Product_Id,prod,options);
     }
     public delProduct(id:string):Observable<number>
     {

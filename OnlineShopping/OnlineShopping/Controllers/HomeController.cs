@@ -15,7 +15,7 @@ namespace OnlineShopping.Controllers
     [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class HomeController : ApiController
     {
-        private Online_ShoppingEntities4 db = new Online_ShoppingEntities4();
+        private Online_ShoppingEntities5 db = new Online_ShoppingEntities5();
 
         // GET: api/Home
         public IQueryable<ProductDetail> GetProductDetails()

@@ -1,21 +1,32 @@
-  import { Retailer } from '../models/retailer.model';
-import { HttpClient } from '@angular/common/http';
+import { Retailer } from '../models/retailer.model';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class RetailerService
 {
-    retalier:Retailer[];
+    url = "http://localhost:58620/api/Retailers";
     constructor(private http: HttpClient)
     {
-        this.retalier=[];
     }
-    public getRetailer()
+    public getRetailer():Observable<Retailer[]>
     {
-        return this.http.get("http://localhost:58620/api/Retailers");
+        return this.http.get<Retailer[]>(this.url);
     }
-    public postRetailer(retailer:Retailer)
+    public postRetailer(retailer:Retailer):Observable<Retailer>
     {
-        return this.http.post("http://localhost:58620/api/Retailers",retailer);
+        let httpHeaders = new HttpHeaders()
+        .set('Content-Type','application/json');
+        let options = {
+          headers:httpHeaders
+        };
+        return this.http.post<Retailer>(this.url,retailer,options);
+    }
+    public deleteRetailer(id:number):Observable<number>
+    {
+        let httpHeaders = new HttpHeaders()
+        .set('Content-Type','application/json');
+        return this.http.delete<number>(this.url+"/"+id);
     }
 }

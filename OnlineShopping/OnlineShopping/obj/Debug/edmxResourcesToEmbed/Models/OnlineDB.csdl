@@ -211,7 +211,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="Online_ShoppingEntities4" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="Online_ShoppingEntities5" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="AdminInfoes" EntityType="Self.AdminInfo" />
     <EntitySet Name="Categories" EntityType="Self.Category" />
     <EntitySet Name="Customers" EntityType="Self.Customer" />
@@ -299,6 +299,9 @@
     <FunctionImport Name="LoginCustomer1" ReturnType="Collection(String)">
       <Parameter Name="pass" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="LoginRetailer" ReturnType="Collection(String)">
+      <Parameter Name="email" Mode="In" Type="String" />
+    </FunctionImport>
     <FunctionImport Name="ProductView" ReturnType="Collection(Model.ProductView_Result)" />
     <FunctionImport Name="RetailerView" ReturnType="Collection(Model.RetailerView_Result)" />
     <FunctionImport Name="UpdateAdminPassword">
@@ -329,6 +332,9 @@
       <Parameter Name="price" Mode="In" Type="Double" />
     </FunctionImport>
     <FunctionImport Name="ViewProductDetails" ReturnType="Collection(Model.ViewProductDetails_Result)" />
+    <FunctionImport Name="DeleteRetailer">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="ProductView_Result">
     <Property Type="String" Name="Product_Id" Nullable="false" MaxLength="20" />

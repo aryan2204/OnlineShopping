@@ -19,10 +19,27 @@ export class SharedService
     public policyId;
     public renewProfileData;
     public adminEmail;
+    public CustomerId;
+    public Customer_EMail;
+    public RetailerId;
 
 
 
-
+    
+    
+    public getCustomerId(){
+        return this.CustomerId;
+    }
+    public setCustomerId(Id){
+        this.CustomerId=Id;
+    }
+    public getRetailerId(){
+        return this.RetailerId;
+    }
+    public setRetailerId(Id){
+        this.RetailerId=Id;
+    }
+    
     public setadminEmail(email)
     {
             this.adminEmail=email;

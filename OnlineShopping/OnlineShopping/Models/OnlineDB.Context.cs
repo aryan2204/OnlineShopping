@@ -15,10 +15,10 @@ namespace OnlineShopping.Models
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class Online_ShoppingEntities4 : DbContext
+    public partial class Online_ShoppingEntities5 : DbContext
     {
-        public Online_ShoppingEntities4()
-            : base("name=Online_ShoppingEntities4")
+        public Online_ShoppingEntities5()
+            : base("name=Online_ShoppingEntities5")
         {
         }
     
@@ -197,6 +197,15 @@ namespace OnlineShopping.Models
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("LoginCustomer1", passParameter);
         }
     
+        public virtual ObjectResult<string> LoginRetailer(string email)
+        {
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("LoginRetailer", emailParameter);
+        }
+    
         public virtual ObjectResult<ProductView_Result> ProductView()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ProductView_Result>("ProductView");
@@ -306,6 +315,15 @@ namespace OnlineShopping.Models
         public virtual ObjectResult<ViewProductDetails_Result> ViewProductDetails()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<ViewProductDetails_Result>("ViewProductDetails");
+        }
+    
+        public virtual int DeleteRetailer(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteRetailer", idParameter);
         }
     }
 }

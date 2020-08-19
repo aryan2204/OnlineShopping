@@ -73,8 +73,8 @@ export class UserLoginComponent implements OnInit {
 
     this.userDetails=this.service.getuserData();
     // console.log(this.userDetails);
-      this.login.Customer_EMail=this.userDetails.Email;
-      this.login.Password=this.userDetails.Password;
+      // this.login.Customer_EMail=this.userDetails.Email;
+      // this.login.Password=this.userDetails.Password;
       
 
   }

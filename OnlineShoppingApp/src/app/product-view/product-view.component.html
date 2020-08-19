@@ -37,8 +37,9 @@
           <td>{{p.BrandName}}</td>
           <td>{{p.Category_Id}}</td>
           <td>{{p.Retailer_Id}}</td>
-          <td><button class="btn btn-success" (click)="Edit(product.Product_Id)"><span class="glyphicon glyphicon-edit"></span></button></td>
-          <td><button class="btn btn-danger" (click)="Delete(product.Product_Id)"><span class="glyphicon glyphicon-trash"></span></button></td>
+          <td><button class="btn btn-success" (click)="Edit(p.Product_Id)"><span class="glyphicon glyphicon-edit"></span></button></td>
+          
+          <td><button class="btn btn-danger" (click)="Delete(p.Product_Id)"><span class="glyphicon glyphicon-trash"></span></button></td>
         </tr>
       </tbody>
     </table>

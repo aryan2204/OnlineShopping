@@ -13,7 +13,11 @@ export class RetailerViewComponent implements OnInit {
 showToggle:Boolean;
 showModal: Boolean;
 myForm:FormGroup;
-retailer:Retailer;  
+retailer:Retailer;
+message = null;
+datasaved = false;
+retailerIdtoUpdate:null;
+id:number; 
 
   constructor(private retService:RetailerService,private fb: FormBuilder) { 
     this.retailer = new Retailer();
@@ -41,6 +45,17 @@ retailer:Retailer;
         RetNum: ''
     });
 }
+
+Delete(retId:number)
+  {
+    this.retService.deleteRetailer(retId).subscribe(()=>
+{
+  this.message = "Deleted";
+  this.retService.getRetailer();
+  this.retailerIdtoUpdate = null;
+  this.myForm.reset();
+})
+  }
 show()
   {
     this.showModal = true; // Show-Hide Modal Check
@@ -56,11 +71,21 @@ show()
   {
     if(this.myForm.valid)
     {
-      this.retService.postRetailer(this.retailer).subscribe((data)=>
+      this.retailer.Retailer_Name=this.RetName.value;
+      this.retailer.Retailer_EMail=this.RetEmail.value;
+      this.retailer.MobileNum=this.RetNum.value;
+    
+      if(this.retailerIdtoUpdate==null)
       {
-        this.retailers = data;
-        console.log(data);
-      })
+        this.retService.postRetailer(this.retailer).subscribe(()=>
+        {
+          this.datasaved = true;
+          this.message = "Data Inserted";
+          this.retService.getRetailer();
+          this.retailerIdtoUpdate = null;
+          this.myForm.reset();
+        });
+      } 
       this.hide();
     }
   }

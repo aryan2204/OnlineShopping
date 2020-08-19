@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Online_ShoppingEntities4">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="Online_ShoppingEntities5">
     <EntitySetMapping Name="AdminInfoes">
       <EntityTypeMapping TypeName="Model.AdminInfo">
         <MappingFragment StoreEntitySet="AdminInfo">
@@ -117,6 +117,7 @@
     <FunctionImportMapping FunctionImportName="LoginAdmin" FunctionName="Model.Store.LoginAdmin" />
     <FunctionImportMapping FunctionImportName="LoginCustomer" FunctionName="Model.Store.LoginCustomer" />
     <FunctionImportMapping FunctionImportName="LoginCustomer1" FunctionName="Model.Store.LoginCustomer1" />
+    <FunctionImportMapping FunctionImportName="LoginRetailer" FunctionName="Model.Store.LoginRetailer" />
     <FunctionImportMapping FunctionImportName="ProductView" FunctionName="Model.Store.ProductView">
       <ResultMapping>
         <ComplexTypeMapping TypeName="Model.ProductView_Result">
@@ -165,5 +166,6 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeleteRetailer" FunctionName="Model.Store.DeleteRetailer" />
   </EntityContainerMapping>
 </Mapping>

@@ -9,27 +9,20 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using OnlineShopping.Models;
-using System.Web.Http.Cors;
+
 namespace OnlineShopping.Controllers
 {
-    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
-
-    public class RetailersController : ApiController
+    public class RetailerLogin1Controller : ApiController
     {
         private Online_ShoppingEntities5 db = new Online_ShoppingEntities5();
 
-        // GET: api/Retailers
-        public IHttpActionResult GetRetailers()
+        // GET: api/RetailerLogin1
+        public IQueryable<Retailer> GetRetailers()
         {
-            List<RetailerView_Result> retailerViews = new List<RetailerView_Result>();
-            foreach (var item in db.RetailerView())
-            {
-                retailerViews.Add(item);
-            }
-            return Ok(retailerViews);
+            return db.Retailers;
         }
 
-        // GET: api/Retailers/5
+        // GET: api/RetailerLogin1/5
         [ResponseType(typeof(Retailer))]
         public IHttpActionResult GetRetailer(int id)
         {
@@ -39,10 +32,11 @@ namespace OnlineShopping.Controllers
                 return NotFound();
             }
 
+
             return Ok(retailer);
         }
 
-        // PUT: api/Retailers/5
+        // PUT: api/RetailerLogin1/5
         [ResponseType(typeof(void))]
         public IHttpActionResult PutRetailer(int id, Retailer retailer)
         {
@@ -77,15 +71,16 @@ namespace OnlineShopping.Controllers
             return StatusCode(HttpStatusCode.NoContent);
         }
 
-        // POST: api/Retailers
+        // POST: api/RetailerLogin1
         [ResponseType(typeof(Retailer))]
         public IHttpActionResult PostRetailer(Retailer retailer)
         {
-            db.InsertRetailer(retailer.Retailer_Name, retailer.Retailer_EMail, retailer.MobileNum);
+            db.LoginRetailer(retailer.Retailer_EMail);
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
+            
 
             //db.Retailers.Add(retailer);
             db.SaveChanges();
@@ -93,21 +88,20 @@ namespace OnlineShopping.Controllers
             return CreatedAtRoute("DefaultApi", new { id = retailer.Retailer_Id }, retailer);
         }
 
-        // DELETE: api/Retailers/5
+        // DELETE: api/RetailerLogin1/5
         [ResponseType(typeof(Retailer))]
         public IHttpActionResult DeleteRetailer(int id)
         {
-            //Retailer retailer = db.Retailers.Find(id);
-            //if (retailer == null)
-            //{
-            //    return NotFound();
-            //}
+            Retailer retailer = db.Retailers.Find(id);
+            if (retailer == null)
+            {
+                return NotFound();
+            }
 
-            //db.Retailers.Remove(retailer);
-            db.DeleteRetailer(id);
+            db.Retailers.Remove(retailer);
             db.SaveChanges();
 
-            return Ok(id);
+            return Ok(retailer);
         }
 
         protected override void Dispose(bool disposing)

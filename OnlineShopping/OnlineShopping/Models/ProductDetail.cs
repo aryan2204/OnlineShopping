@@ -14,6 +14,7 @@ namespace OnlineShopping.Models
     using System.Runtime.Serialization;
 
     [DataContract]
+    
     public partial class ProductDetail
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,6 +23,7 @@ namespace OnlineShopping.Models
             this.OrderDetails = new HashSet<OrderDetail>();
             this.Wishlists = new HashSet<Wishlist>();
         }
+    
         [DataMember]
         public string Product_Id { get; set; }
         [DataMember]
