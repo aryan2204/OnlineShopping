@@ -1,5 +1,6 @@
 import { Product } from '../models/product.model'
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
+//import { Observable } from '../../../node_modules/rxjs/Observable';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -7,7 +8,6 @@ import { Observable } from 'rxjs';
 export class ProductService
 {
     url = "http://localhost:58620/api/ProductDetails";
-    product:Product[];
     constructor(private http: HttpClient)
     {
     }
@@ -28,14 +28,14 @@ export class ProductService
         };
         return this.http.post<Product>(this.url,product,options);
     }
-    public putProduct(prod:Product):Observable<number>
+    public putProduct(prod:Product):Observable<Product>
     {
         let httpHeaders = new HttpHeaders()
         .set('Content-Type','application/json');
         let options = {
           headers:httpHeaders
         };
-        return this.http.put<number>(this.url+"/"+prod.Product_Id,prod,options);
+        return this.http.put<Product>(this.url+"/"+prod.Product_Id,prod,options);
     }
     public delProduct(id:string):Observable<number>
     {

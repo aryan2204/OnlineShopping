@@ -4,12 +4,12 @@ import { FormGroup, FormControl, Validators,FormBuilder } from '@angular/forms';
 import { Retailer } from '../models/retailer.model';
 
 @Component({
-  selector: 'app-retailerview',
+  selector: 'app-retailer-view',
   templateUrl: './retailer-view.component.html',
   styleUrls: ['./retailer-view.component.css']
 })
-export class RetailerviewComponent implements OnInit {
-retailers: any = [];
+export class RetailerViewComponent implements OnInit {
+  retailers:any = [];
 showToggle:Boolean;
 showModal: Boolean;
 myForm:FormGroup;
@@ -17,14 +17,14 @@ retailer:Retailer;
 message = null;
 datasaved = false;
 retailerIdtoUpdate:null;
-id:number;
+id:number; 
 
   constructor(private retService:RetailerService,private fb: FormBuilder) { 
     this.retailer = new Retailer();
     this.myForm= this.fb.group({
-      RetName:new FormControl('',Validators.required),
-      RetEmail:new FormControl('',Validators.required),
-      RetNum:new FormControl('',Validators.required)
+      RetName:new FormControl(null,Validators.required),
+      RetEmail:new FormControl(null,Validators.required),
+      RetNum:new FormControl(null,Validators.required)
     })
     this.showToggle=false;
   }
@@ -45,6 +45,17 @@ id:number;
         RetNum: ''
     });
 }
+
+Delete(retId:number)
+  {
+    this.retService.deleteRetailer(retId).subscribe(()=>
+{
+  this.message = "Deleted";
+  this.retService.getRetailer();
+  this.retailerIdtoUpdate = null;
+  this.myForm.reset();
+})
+  }
 show()
   {
     this.showModal = true; // Show-Hide Modal Check
@@ -58,33 +69,25 @@ show()
   }
   onSubmit() 
   {
-    this.retailer.Retailer_Name=this.RetName.value;
-    this.retailer.Retailer_EMail=this.RetEmail.value;
-    this.retailer.MobileNum=this.RetNum.value;
     if(this.myForm.valid)
     {
-      this.retService.postRetailer(this.retailer).subscribe(()=>
+      this.retailer.Retailer_Name=this.RetName.value;
+      this.retailer.Retailer_EMail=this.RetEmail.value;
+      this.retailer.MobileNum=this.RetNum.value;
+    
+      if(this.retailerIdtoUpdate==null)
+      {
+        this.retService.postRetailer(this.retailer).subscribe(()=>
         {
-          //console.log(data);
-          //this.products = data;
           this.datasaved = true;
           this.message = "Data Inserted";
           this.retService.getRetailer();
           this.retailerIdtoUpdate = null;
           this.myForm.reset();
         });
+      } 
       this.hide();
     }
-  }
-  Delete(retId:string)
-  {
-    this.retService.deleteRetailer(retId).subscribe(()=>
-{
-  this.message = "Deleted";
-  this.retService.getRetailer();
-  this.retailerIdtoUpdate = null;
-  this.myForm.reset();
-})
   }
   onClose(){
     this.myForm.reset();

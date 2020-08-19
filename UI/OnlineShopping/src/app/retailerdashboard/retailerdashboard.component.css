@@ -1,0 +1,19 @@
+#divhead
+{
+    width: auto;
+    height: 100px;
+    background-color: rgb(27, 73, 143);
+}
+#img{
+  margin-top: 1%;
+  margin-left: 1%;
+}
+footer {
+    background-color: #555;
+    color: lightgray;
+    padding: 15px;
+  }
+.modal
+  {
+    overflow-y: scroll;
+  }

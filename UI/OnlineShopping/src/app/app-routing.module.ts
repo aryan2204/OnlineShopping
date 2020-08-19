@@ -3,10 +3,9 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ProductComponent } from './product/product.component';
 import { CartComponent } from './cart/cart.component';
-import { ThankyouComponent } from './thankout/thankout.component';
 import {ProductViewComponent} from './product-view/product-view.component';
 import {OrderViewComponent} from './order-view/order-view.component';
-import {RetailerviewComponent} from './retailer-view/retailer-view.component';
+import {RetailerViewComponent} from './retailer-view/retailer-view.component';
 import { AdminComponent } from './admin/admin.component';
 import {WishlistComponent} from './wishlist/wishlist.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
@@ -18,6 +17,7 @@ import { RegistrationComponent } from './registration/registration.component';
 import { RetailerdashboardComponent } from './retailerdashboard/retailerdashboard.component';
 import { AdminloginComponent } from './adminlogin/adminlogin.component';
 import { RetailerloginComponent } from './retailerlogin/retailerlogin.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 const routes: Routes = [
@@ -30,9 +30,6 @@ const routes: Routes = [
   {
     path: 'cart', component: CartComponent
   },
-  {
-    path: 'thankyou', component: ThankyouComponent
-  },
   { 
     path: "productdetails", component:ProductViewComponent
   },
@@ -40,7 +37,7 @@ const routes: Routes = [
      path: "ordersdetails", component:OrderViewComponent
   },
   { 
-    path: "retailerdetails", component:RetailerviewComponent
+    path: "retailerdetails", component:RetailerViewComponent
   },
   {
     path: "admin",component: AdminloginComponent
@@ -74,6 +71,9 @@ const routes: Routes = [
   },
   {
     path: "retailerdashboard", component: RetailerdashboardComponent
+  },
+  {
+    path: "checkout",component: CheckoutComponent
   }
 
   

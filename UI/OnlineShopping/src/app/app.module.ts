@@ -13,13 +13,12 @@ import { ToastrModule } from 'ngx-toastr';
 import {OrderService} from './services/order.service';
 import {CartService} from './services/cart.service';
 import { CartComponent } from './cart/cart.component';
-import { ThankyouComponent } from './thankout/thankout.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { UserDashboardComponent } from './user-dashboard/user-dashboard.component';
 import { AdminComponent } from './admin/admin.component';
 import { ProductViewComponent } from './product-view/product-view.component';
 import { OrderViewComponent } from './order-view/order-view.component';
-import { RetailerviewComponent } from './retailer-view/retailer-view.component';
+import { RetailerViewComponent } from './retailer-view/retailer-view.component';
 import {ProductService} from './services/productdetail.service';
 import { RetailerService } from './services/retailor.service';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
@@ -53,13 +52,13 @@ import { RetailerloginComponent } from './retailerlogin/retailerlogin.component'
     ProductComponent,
     FooterComponent,
     CartComponent,
-    ThankyouComponent,
+    
     CheckoutComponent,
     UserDashboardComponent,
     AdminComponent,
     ProductViewComponent,
     OrderViewComponent,
-    RetailerviewComponent,
+    RetailerViewComponent,
     WishlistComponent,
     DashboardComponent,
     UserInfoComponent,

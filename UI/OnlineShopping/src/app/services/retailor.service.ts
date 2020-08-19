@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable()
 export class RetailerService
 {
-    url = "http://localhost:59289/api/Retailers";
+    url = "http://localhost:58620/api/RetailersLogin";
     constructor(private http: HttpClient)
     {
     }
@@ -23,7 +23,7 @@ export class RetailerService
         };
         return this.http.post<Retailer>(this.url,retailer,options);
     }
-    public deleteRetailer(id:string):Observable<number>
+    public deleteRetailer(id:number):Observable<number>
     {
         let httpHeaders = new HttpHeaders()
         .set('Content-Type','application/json');
